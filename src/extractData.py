@@ -12,10 +12,17 @@ API_URL = "https://sedeaplicaciones.minetur.gob.es/ServiciosRESTCarburantes/Prec
 RAW_DIR = Path(__file__).resolve().parent.parent / "data" / "raw"
 
 
-def fetch_data() -> dict:
-    req = urllib.request.Request(API_URL, headers={"User-Agent": "Mozilla/5.0"})
-    with urllib.request.urlopen(req, timeout=30) as resp:
-        return json.loads(resp.read())
+def fetch_data(max_retries=3) -> dict:
+    for attempt in range(max_retries):
+        try:
+            req = urllib.request.Request(API_URL, headers={"User-Agent": "Mozilla/5.0"})
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                return json.loads(resp.read())
+        except (urllib.error.URLError, ConnectionResetError) as e:
+            if attempt == max_retries - 1:
+                raise
+            print(f"  Retry {attempt + 1}/{max_retries} after: {e}")
+            time.sleep(2 ** attempt)
 
 
 def save_raw(data: dict, ingestion_ts: str) -> str:

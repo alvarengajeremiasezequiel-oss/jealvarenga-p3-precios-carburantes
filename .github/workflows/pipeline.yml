@@ -1,4 +1,4 @@
-name: observatorio-precios-
+name: observatorio-precios-carburante
 
 on:
   schedule:

@@ -36,7 +36,7 @@ def _get_snowflake_config():
     """Return a config dict with non-empty attrs, private_key converted to DER bytes."""
     cfg = {k: v for k, v in SNOWFLAKE_CONFIG.items() if v}
     cfg.setdefault("schema", "RAW")
-    required = ["account", "user", "warehouse", "database"]
+    required = ["account", "user", "private_key"]
     missing = [k for k in required if k not in cfg]
     if "private_key" not in cfg:
         missing.append("private_key")

@@ -17,8 +17,8 @@ SNOWFLAKE_CONFIG = {
     "account": os.getenv("SNOWFLAKE_ACCOUNT"),
     "user": os.getenv("SNOWFLAKE_USER"),
     "private_key": os.getenv("SNOWFLAKE_PRIVATE_KEY"),
-    "warehouse": os.getenv("SNOWFLAKE_WAREHOUSE", "COMPUTE_WH"),
-    "database": os.getenv("SNOWFLAKE_DATABASE", "PRECIOS_CARBURANTE_DB"),
+    "warehouse": os.getenv("SNOWFLAKE_WAREHOUSE") or "COMPUTE_WH",
+    "database": os.getenv("SNOWFLAKE_DATABASE") or "PRECIOS_CARBURANTE_DB",
 }
 
 # Helper function to load and transform SNOWFLAKE_PRIVATE_KEY from .env
@@ -38,8 +38,6 @@ def _get_snowflake_config():
     cfg.setdefault("schema", "RAW")
     required = ["account", "user", "private_key"]
     missing = [k for k in required if k not in cfg]
-    if "private_key" not in cfg:
-        missing.append("private_key")
     if missing:
         raise EnvironmentError(f"Missing Snowflake env vars: {', '.join(missing)}")
     cfg["private_key"] = _load_private_key(cfg["private_key"])

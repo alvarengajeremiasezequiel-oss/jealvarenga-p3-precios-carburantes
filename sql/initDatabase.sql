@@ -123,12 +123,12 @@ BEGIN
     FROM (
         SELECT
             s.ingestion_ts,
-            r.value:IDEESS::VARCHAR AS ideess,
-            r.value:"Precio Gasoleo A"::VARCHAR      AS "Gasoleo A",
-            r.value:"Precio Gasolina 95 E5"::VARCHAR  AS "Gasolina 95 E5",
-            r.value:"Precio Adblue"::VARCHAR          AS "AdBlue"
+            lf.value:IDEESS::VARCHAR AS ideess,
+            lf.value:"Precio Gasoleo A"::VARCHAR      AS "Gasoleo A",
+            lf.value:"Precio Gasolina 95 E5"::VARCHAR  AS "Gasolina 95 E5",
+            lf.value:"Precio Adblue"::VARCHAR          AS "AdBlue"
         FROM SILVER._raw_staging s,
-             LATERAL FLATTEN(input => s.payload:ListaEESSPrecio) r
+             LATERAL FLATTEN(input => s.payload:ListaEESSPrecio) lf
     ) r
     UNPIVOT (
         price_str FOR product IN ("Gasoleo A", "Gasolina 95 E5", "AdBlue")

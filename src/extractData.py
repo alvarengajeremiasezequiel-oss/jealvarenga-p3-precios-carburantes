@@ -14,10 +14,12 @@ RAW_DIR = Path(__file__).resolve().parent.parent / "data" / "raw"
 
 
 def _make_ssl_context():
-    """Create a permissive SSL context to handle API"""
-    context = ssl.create_default_context()
+    """Create a permissive SSL context forcing TLS 1.2"""
+    context = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
     context.check_hostname = False
     context.verify_mode = ssl.CERT_NONE
+    context.minimum_version = ssl.TLSVersion.TLSv1_2
+    context.maximum_version = ssl.TLSVersion.TLSv1_2
     return context
 
 

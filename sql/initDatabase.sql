@@ -189,7 +189,7 @@ BEGIN
         ingestion_ts,
         ideess,
         product,
-        price_eur_l::NUMBER(12,2) AS price
+        price_eur_l::NUMBER(12,3) AS price
     FROM SILVER._raw_prices;
 
     -- Insert new stations into GOLD.dim_station

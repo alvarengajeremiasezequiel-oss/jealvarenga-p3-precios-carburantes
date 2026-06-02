@@ -36,7 +36,7 @@ def fetch_data(max_retries=5) -> dict:
         except (urllib.error.URLError, ConnectionResetError) as e:
             if attempt == max_retries - 1:
                 raise
-            delay = max(5, 2 ** attempt)
+            delay = max(10, 2 ** attempt + 1)
             print(f"  Retry {attempt + 1}/{max_retries} after {delay}s: {e}")
             time.sleep(delay)
 

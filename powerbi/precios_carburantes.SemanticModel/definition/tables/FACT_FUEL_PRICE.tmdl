@@ -1,0 +1,105 @@
+table FACT_FUEL_PRICE
+	lineageTag: c37bbc8f-b851-4b08-a67b-ca10e7852436
+
+	measure 'Precio actual' =
+			
+			VAR LatestTS = MAX(FACT_FUEL_PRICE[INGESTION_TS])
+			RETURN
+			    CALCULATE(
+			        AVERAGE(FACT_FUEL_PRICE[PRICE]),
+			        FACT_FUEL_PRICE[INGESTION_TS] = LatestTS
+			    )
+		lineageTag: 1f5c08f3-616a-4354-be4f-97e45196e2eb
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Variacion las ultimas 24h' =
+			
+			VAR LatestTS = MAX(FACT_FUEL_PRICE[INGESTION_TS])
+			RETURN
+			    CALCULATE(
+			        STDEV.P(FACT_FUEL_PRICE[PRICE]),
+			        FACT_FUEL_PRICE[INGESTION_TS] >= LatestTS - 1
+			    )
+		lineageTag: f4b3eaaa-5b0a-4005-9f01-c7c79cf3df82
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Variacion la ultima semana' =
+			
+			VAR LatestTS = MAX(FACT_FUEL_PRICE[INGESTION_TS])
+			RETURN
+			    CALCULATE(
+			        STDEV.P(FACT_FUEL_PRICE[PRICE]),
+			        FACT_FUEL_PRICE[INGESTION_TS] >= LatestTS - 7
+			    )
+		lineageTag: 70fc4838-6473-4a80-b5a8-87f89f865f81
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DATE_ID
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 6ab60bb0-b9b3-4703-a612-2b2cc0a20723
+		summarizeBy: none
+		sourceColumn: DATE_ID
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column INGESTION_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 74fefe97-93ef-4ed4-ac11-2ab618de65ba
+		summarizeBy: none
+		sourceColumn: INGESTION_TS
+
+		variation Variation
+			isDefault
+			relationship: 2b4038af-ca22-4577-be0f-6e16162bf5e5
+			defaultHierarchy: LocalDateTable_559e108b-0183-4b73-be0e-62adf438662c.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column IDEESS
+		dataType: string
+		lineageTag: 838ea304-fd22-471a-ae7a-01ebacbbb3da
+		summarizeBy: none
+		sourceColumn: IDEESS
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRODUCT
+		dataType: string
+		lineageTag: ff29f1c7-777a-469c-b43a-2d06e7727d24
+		summarizeBy: none
+		sourceColumn: PRODUCT
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRICE
+		dataType: double
+		lineageTag: 7536a8eb-11d2-419c-8c62-d926a4325bf9
+		summarizeBy: sum
+		sourceColumn: PRICE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition FACT_FUEL_PRICE = m
+		mode: import
+		source =
+				let
+				    Source = Snowflake.Databases("QVRRTYP-WH83871","COMPUTE_WH",[Implementation="2.0"]),
+				    PRECIOS_CARBURANTE_DB_Database = Source{[Name="PRECIOS_CARBURANTE_DB",Kind="Database"]}[Data],
+				    GOLD_Schema = PRECIOS_CARBURANTE_DB_Database{[Name="GOLD",Kind="Schema"]}[Data],
+				    FACT_FUEL_PRICE_Table = GOLD_Schema{[Name="FACT_FUEL_PRICE",Kind="Table"]}[Data]
+				in
+				    FACT_FUEL_PRICE_Table
+
+	annotation PBI_ResultType = Table
+

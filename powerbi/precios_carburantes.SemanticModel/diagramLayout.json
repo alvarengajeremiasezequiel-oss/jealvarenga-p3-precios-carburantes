@@ -1,0 +1,74 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 308.89104387357736,
+            "y": 366.74132253985596
+          },
+          "nodeIndex": "DIM_DATE",
+          "nodeLineageTag": "bdbe17df-a7ba-4027-9105-a5c5e9c4a55f",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 632.84437813738282,
+            "y": 78.92265624537815
+          },
+          "nodeIndex": "DIM_PRODUCT",
+          "nodeLineageTag": "044b4afa-1f6b-4fb2-ae2b-3499e8aba42b",
+          "size": {
+            "height": 145,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 2.8186662944777936,
+            "y": 0
+          },
+          "nodeIndex": "DIM_STATION",
+          "nodeLineageTag": "7b062e6b-b609-4562-903b-3623d8f08faa",
+          "size": {
+            "height": 311.50266461962781,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 312.02022748766296,
+            "y": 63.419991625750285
+          },
+          "nodeIndex": "FACT_FUEL_PRICE",
+          "nodeLineageTag": "c37bbc8f-b851-4b08-a67b-ca10e7852436",
+          "size": {
+            "height": 211.27466517791117,
+            "width": 234
+          },
+          "zIndex": 4
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 70.95554390096882,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

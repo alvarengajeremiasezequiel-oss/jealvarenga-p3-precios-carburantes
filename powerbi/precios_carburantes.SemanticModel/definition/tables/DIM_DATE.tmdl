@@ -1,0 +1,60 @@
+table DIM_DATE
+	lineageTag: bdbe17df-a7ba-4027-9105-a5c5e9c4a55f
+
+	column DATE_ID
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 85fdd717-18d8-44f8-9e5f-bc183b4f3c89
+		summarizeBy: none
+		sourceColumn: DATE_ID
+
+		variation Variation
+			isDefault
+			relationship: ee757573-e6f7-484d-aafc-45cbc1280fad
+			defaultHierarchy: LocalDateTable_eb006580-743f-4671-8c89-5b687a7e8ce1.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column YEAR
+		dataType: double
+		lineageTag: ec641689-fa69-4ccd-8b45-779749846b5e
+		summarizeBy: sum
+		sourceColumn: YEAR
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MONTH
+		dataType: double
+		lineageTag: 569626d7-9260-4865-b25f-b21dd47e7503
+		summarizeBy: sum
+		sourceColumn: MONTH
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DAY_OF_THE_WEEK
+		dataType: string
+		lineageTag: 25698046-a251-4379-b3f5-ead7ad624048
+		summarizeBy: none
+		sourceColumn: DAY_OF_THE_WEEK
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DIM_DATE = m
+		mode: import
+		source =
+				let
+				    Source = Snowflake.Databases("QVRRTYP-WH83871","COMPUTE_WH",[Implementation="2.0"]),
+				    PRECIOS_CARBURANTE_DB_Database = Source{[Name="PRECIOS_CARBURANTE_DB",Kind="Database"]}[Data],
+				    GOLD_Schema = PRECIOS_CARBURANTE_DB_Database{[Name="GOLD",Kind="Schema"]}[Data],
+				    DIM_DATE_Table = GOLD_Schema{[Name="DIM_DATE",Kind="Table"]}[Data]
+				in
+				    DIM_DATE_Table
+
+	annotation PBI_ResultType = Table
+

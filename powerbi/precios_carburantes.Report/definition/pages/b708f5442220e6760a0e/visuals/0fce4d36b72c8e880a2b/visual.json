@@ -1,0 +1,74 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "0fce4d36b72c8e880a2b",
+  "position": {
+    "x": 1040,
+    "y": 330,
+    "z": 2003,
+    "height": 110,
+    "width": 240,
+    "tabOrder": 2003
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FACT_FUEL_PRICE"
+                    }
+                  },
+                  "Property": "Variacion la ultima semana"
+                }
+              },
+              "queryRef": "FACT_FUEL_PRICE.Variacion la ultima semana",
+              "nativeQueryRef": "Variacion la ultima semana"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "FACT_FUEL_PRICE"
+                  }
+                },
+                "Property": "Variacion la ultima semana"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "e1e7302c311c46e48840",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FACT_FUEL_PRICE"
+              }
+            },
+            "Property": "Variacion la ultima semana"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

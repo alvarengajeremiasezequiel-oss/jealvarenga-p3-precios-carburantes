@@ -1,0 +1,148 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "f3b58350412c0994da16",
+  "position": {
+    "x": 0,
+    "y": 440,
+    "z": 2000,
+    "height": 280,
+    "width": 568.33333333333337,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_PRODUCT"
+                    }
+                  },
+                  "Property": "PRODUCT_NAME"
+                }
+              },
+              "queryRef": "DIM_PRODUCT.PRODUCT_NAME",
+              "nativeQueryRef": "PRODUCT_NAME"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FACT_FUEL_PRICE"
+                        }
+                      },
+                      "Property": "PRICE"
+                    }
+                  },
+                  "Function": 8
+                }
+              },
+              "queryRef": "Sum(FACT_FUEL_PRICE.PRICE)",
+              "nativeQueryRef": "Variance of PRICE"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "FACT_FUEL_PRICE"
+                      }
+                    },
+                    "Property": "PRICE"
+                  }
+                },
+                "Function": 8
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "369.78322353304975D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DIM_PRODUCT.PRODUCT_NAME"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "175.81595934285744D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(FACT_FUEL_PRICE.PRICE)"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "667602e752cb501c901c",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_PRODUCT"
+              }
+            },
+            "Property": "PRODUCT_NAME"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "6721cf302535e15d154d",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "FACT_FUEL_PRICE"
+                  }
+                },
+                "Property": "PRICE"
+              }
+            },
+            "Function": 8
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

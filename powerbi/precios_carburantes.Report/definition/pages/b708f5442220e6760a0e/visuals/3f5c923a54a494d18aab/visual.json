@@ -1,0 +1,74 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "3f5c923a54a494d18aab",
+  "position": {
+    "x": 1040,
+    "y": 0,
+    "z": 2001,
+    "height": 220,
+    "width": 240,
+    "tabOrder": 2001
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FACT_FUEL_PRICE"
+                    }
+                  },
+                  "Property": "Precio actual"
+                }
+              },
+              "queryRef": "FACT_FUEL_PRICE.Precio actual",
+              "nativeQueryRef": "Precio actual"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "FACT_FUEL_PRICE"
+                  }
+                },
+                "Property": "Precio actual"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "a0c660209cd74409bba4",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FACT_FUEL_PRICE"
+              }
+            },
+            "Property": "Precio actual"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

@@ -1,0 +1,34 @@
+table DIM_PRODUCT
+	lineageTag: 044b4afa-1f6b-4fb2-ae2b-3499e8aba42b
+
+	column PRODUCT_NAME
+		dataType: string
+		lineageTag: 1f02726d-f29f-4ec9-af4d-49b9788590c0
+		summarizeBy: none
+		sourceColumn: PRODUCT_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column AVERAGE_PRICE
+		dataType: double
+		lineageTag: 0793f7f8-1b15-4c8c-9e30-0b63144c3f22
+		summarizeBy: none
+		sourceColumn: AVERAGE_PRICE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition DIM_PRODUCT = m
+		mode: import
+		source =
+				let
+				    Source = Snowflake.Databases("QVRRTYP-WH83871","COMPUTE_WH",[Implementation="2.0"]),
+				    PRECIOS_CARBURANTE_DB_Database = Source{[Name="PRECIOS_CARBURANTE_DB",Kind="Database"]}[Data],
+				    GOLD_Schema = PRECIOS_CARBURANTE_DB_Database{[Name="GOLD",Kind="Schema"]}[Data],
+				    DIM_PRODUCT_Table = GOLD_Schema{[Name="DIM_PRODUCT",Kind="Table"]}[Data]
+				in
+				    DIM_PRODUCT_Table
+
+	annotation PBI_ResultType = Table
+

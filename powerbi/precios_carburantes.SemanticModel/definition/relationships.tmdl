@@ -1,0 +1,22 @@
+relationship ee757573-e6f7-484d-aafc-45cbc1280fad
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DIM_DATE.DATE_ID
+	toColumn: LocalDateTable_eb006580-743f-4671-8c89-5b687a7e8ce1.Date
+
+relationship 2b4038af-ca22-4577-be0f-6e16162bf5e5
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FACT_FUEL_PRICE.INGESTION_TS
+	toColumn: LocalDateTable_559e108b-0183-4b73-be0e-62adf438662c.Date
+
+relationship AutoDetected_5f9d29ca-a737-4458-84b7-fa1522781827
+	fromColumn: FACT_FUEL_PRICE.IDEESS
+	toColumn: DIM_STATION.IDEESS
+
+relationship AutoDetected_b1efe125-f34e-4885-a33d-e4de7358c51f
+	fromColumn: FACT_FUEL_PRICE.PRODUCT
+	toColumn: DIM_PRODUCT.PRODUCT_NAME
+
+relationship f659dd35-8554-5056-fa91-371af65f6bd3
+	fromColumn: FACT_FUEL_PRICE.DATE_ID
+	toColumn: DIM_DATE.DATE_ID
+

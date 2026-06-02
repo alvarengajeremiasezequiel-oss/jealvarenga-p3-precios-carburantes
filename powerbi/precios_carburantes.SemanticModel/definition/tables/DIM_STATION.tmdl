@@ -1,0 +1,94 @@
+table DIM_STATION
+	lineageTag: 7b062e6b-b609-4562-903b-3623d8f08faa
+
+	column IDEESS
+		dataType: string
+		lineageTag: 4fd4c8d0-c99b-48ff-bc3a-f5c6bbdc2453
+		summarizeBy: none
+		sourceColumn: IDEESS
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ROTULO
+		dataType: string
+		lineageTag: d6617e41-19da-4d18-8fd5-233cf7e71bcb
+		summarizeBy: none
+		sourceColumn: ROTULO
+
+		annotation SummarizationSetBy = Automatic
+
+	column DIRECCION
+		dataType: string
+		lineageTag: 709c8bf4-3eae-4073-975b-4a0b64cdb0ed
+		summarizeBy: none
+		sourceColumn: DIRECCION
+
+		annotation SummarizationSetBy = Automatic
+
+	column CP
+		dataType: string
+		lineageTag: 1261a595-bf14-4baf-9876-155f3f3171d2
+		summarizeBy: none
+		sourceColumn: CP
+
+		annotation SummarizationSetBy = Automatic
+
+	column MUNICIPIO
+		dataType: string
+		lineageTag: ec4140d8-3daa-4be5-ae5c-dc4494c3e268
+		summarizeBy: none
+		sourceColumn: MUNICIPIO
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROVINCIA
+		dataType: string
+		lineageTag: 43cfd9e8-22f2-4dab-bad6-f2776bf260c0
+		summarizeBy: none
+		sourceColumn: PROVINCIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column IDCCAA
+		dataType: string
+		lineageTag: 70fee132-e7e6-46d8-863f-51158bd4b5dc
+		summarizeBy: none
+		sourceColumn: IDCCAA
+
+		annotation SummarizationSetBy = Automatic
+
+	column LATITUD
+		dataType: double
+		lineageTag: eb19eee7-48d5-42b2-9434-4997e2ea52e0
+		summarizeBy: none
+		sourceColumn: LATITUD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column LONGITUD
+		dataType: double
+		lineageTag: def077ac-2a09-449b-81db-1da6790323bb
+		summarizeBy: none
+		sourceColumn: LONGITUD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition DIM_STATION = m
+		mode: import
+		source =
+				let
+				    Source = Snowflake.Databases("QVRRTYP-WH83871","COMPUTE_WH",[Implementation="2.0"]),
+				    PRECIOS_CARBURANTE_DB_Database = Source{[Name="PRECIOS_CARBURANTE_DB",Kind="Database"]}[Data],
+				    GOLD_Schema = PRECIOS_CARBURANTE_DB_Database{[Name="GOLD",Kind="Schema"]}[Data],
+				    DIM_STATION_Table = GOLD_Schema{[Name="DIM_STATION",Kind="Table"]}[Data]
+				in
+				    DIM_STATION_Table
+
+	annotation PBI_ResultType = Table
+

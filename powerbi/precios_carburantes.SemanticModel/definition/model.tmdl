@@ -1,0 +1,24 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: es-ES
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["DIM_DATE","DIM_PRODUCT","DIM_STATION","FACT_FUEL_PRICE"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table DIM_DATE
+ref table DateTableTemplate_19268126-602d-482c-bfa3-c55f372538d2
+ref table LocalDateTable_eb006580-743f-4671-8c89-5b687a7e8ce1
+ref table DIM_PRODUCT
+ref table DIM_STATION
+ref table FACT_FUEL_PRICE
+ref table LocalDateTable_559e108b-0183-4b73-be0e-62adf438662c
+
+ref cultureInfo en-US
+

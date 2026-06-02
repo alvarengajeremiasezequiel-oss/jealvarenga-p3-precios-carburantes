@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "precios_carburantes"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "2d3a6c06-331e-4c6a-acce-6c7d53ceb1f3"
+  }
+}

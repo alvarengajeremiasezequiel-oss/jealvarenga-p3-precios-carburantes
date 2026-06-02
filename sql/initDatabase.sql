@@ -115,25 +115,26 @@ BEGIN
 
     -- Flatten and unpivot prices into a shared temp table
     CREATE OR REPLACE TEMP TABLE SILVER._raw_prices AS
-    SELECT
-        r.ingestion_ts::TIMESTAMP_NTZ AS ingestion_ts,
-        r.ideess,
-        unp.product,
-        REPLACE(unp.price_str, ',', '.')::FLOAT AS price_eur_l
-    FROM (
+    WITH flattened AS (
         SELECT
-            s.ingestion_ts,
-            lf.value:IDEESS::VARCHAR AS ideess,
-            lf.value:"Precio Gasoleo A"::VARCHAR      AS "Gasoleo A",
-            lf.value:"Precio Gasolina 95 E5"::VARCHAR  AS "Gasolina 95 E5",
-            lf.value:"Precio Adblue"::VARCHAR          AS "AdBlue"
+            s.ingestion_ts::TIMESTAMP_NTZ AS ingestion_ts,
+            r.value:IDEESS::VARCHAR AS ideess,
+            r.value:"Precio Gasoleo A"::VARCHAR      AS "Gasoleo A",
+            r.value:"Precio Gasolina 95 E5"::VARCHAR  AS "Gasolina 95 E5",
+            r.value:"Precio Adblue"::VARCHAR          AS "AdBlue"
         FROM SILVER._raw_staging s,
-             LATERAL FLATTEN(input => s.payload:ListaEESSPrecio) lf
-    ) r
+             LATERAL FLATTEN(input => s.payload:ListaEESSPrecio) r
+    )
+    SELECT
+        ingestion_ts,
+        ideess,
+        product,
+        REPLACE(price_str, ',', '.')::FLOAT AS price_eur_l
+    FROM flattened
     UNPIVOT (
         price_str FOR product IN ("Gasoleo A", "Gasolina 95 E5", "AdBlue")
     ) unp
-    WHERE unp.price_str != '';
+    WHERE price_str != '';
 
 
     -- Merge of new stations into dim_station in SILVER

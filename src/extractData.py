@@ -12,7 +12,7 @@ API_URL = "https://sedeaplicaciones.minetur.gob.es/ServiciosRESTCarburantes/Prec
 RAW_DIR = Path(__file__).resolve().parent.parent / "data" / "raw"
 
 
-def fetch_data(max_retries=3) -> dict:
+def fetch_data(max_retries=10) -> dict:
     for attempt in range(max_retries):
         try:
             req = urllib.request.Request(API_URL, headers={"User-Agent": "Mozilla/5.0"})

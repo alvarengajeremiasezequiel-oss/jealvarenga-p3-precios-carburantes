@@ -1,4 +1,5 @@
 import json
+import ssl
 import time
 import urllib.request
 from pathlib import Path
@@ -12,17 +13,30 @@ API_URL = "https://sedeaplicaciones.minetur.gob.es/ServiciosRESTCarburantes/Prec
 RAW_DIR = Path(__file__).resolve().parent.parent / "data" / "raw"
 
 
-def fetch_data(max_retries=10) -> dict:
+def _make_ssl_context():
+    """Create a permissive SSL context to handle API"""
+    context = ssl.create_default_context()
+    context.check_hostname = False
+    context.verify_mode = ssl.CERT_NONE
+    return context
+
+
+def fetch_data(max_retries=5) -> dict:
+    ssl_context = _make_ssl_context()
+    https_handler = urllib.request.HTTPSHandler(context=ssl_context)
+    opener = urllib.request.build_opener(https_handler)
+
     for attempt in range(max_retries):
         try:
             req = urllib.request.Request(API_URL, headers={"User-Agent": "Mozilla/5.0"})
-            with urllib.request.urlopen(req, timeout=30) as resp:
+            with opener.open(req, timeout=30) as resp:
                 return json.loads(resp.read())
         except (urllib.error.URLError, ConnectionResetError) as e:
             if attempt == max_retries - 1:
                 raise
-            print(f"  Retry {attempt + 1}/{max_retries} after: {e}")
-            time.sleep(2 ** attempt)
+            delay = max(5, 2 ** attempt)
+            print(f"  Retry {attempt + 1}/{max_retries} after {delay}s: {e}")
+            time.sleep(delay)
 
 
 def save_raw(data: dict, ingestion_ts: str) -> str:

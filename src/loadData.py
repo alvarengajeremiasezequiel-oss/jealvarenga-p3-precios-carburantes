@@ -129,7 +129,7 @@ def update_stream(conn):
     with conn.cursor() as cur:
         cur.execute(
             """
-            EXECUTE TASK SILVER.raw_to_silver_task;
+            EXECUTE TASK SILVER.raw_processing_task;
             """
         )
 

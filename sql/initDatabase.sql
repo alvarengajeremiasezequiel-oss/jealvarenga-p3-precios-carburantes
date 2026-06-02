@@ -43,6 +43,7 @@ CREATE TABLE IF NOT EXISTS SILVER.fct_price_snapshot (
 )
 COMMENT = 'Histórico de precios de Gasoleo A, Gasolina 95 E5 y AdBlue por estación';
 
+
 -------------------------------------------
 -- Stream para capturar inserts en RAW
 -------------------------------------------
@@ -51,21 +52,91 @@ CREATE STREAM IF NOT EXISTS RAW.fuel_prices_json_stream
     APPEND_ONLY = TRUE
     COMMENT = 'Stream para detectar nuevas cargas RAW y propagarlas a SILVER';
 
+
+
+
 -------------------------------------------
--- Task SILVER: procesa el stream cada 3 horas
+-- GOLD tables
 -------------------------------------------
-CREATE OR REPLACE TASK SILVER.raw_to_silver_task
+CREATE TABLE IF NOT EXISTS GOLD.fact_fuel_price (
+    date_id       DATE,
+    ingestion_ts  TIMESTAMP_NTZ,
+    ideess        VARCHAR(20),
+    product       VARCHAR(50),
+    price         NUMBER(12,2)
+)
+COMMENT = 'Histórico de precios de Gasoleo A, Gasolina 95 E5 y AdBlue por estación';
+
+CREATE TABLE IF NOT EXISTS GOLD.dim_station (
+    ideess     VARCHAR(20),
+    rotulo     VARCHAR(200),
+    direccion  VARCHAR(500),
+    cp         VARCHAR(10),
+    municipio  VARCHAR(100),
+    provincia  VARCHAR(100),
+    idccaa     VARCHAR(10),
+    latitud    FLOAT,
+    longitud   FLOAT
+)
+COMMENT = 'Dimensión de estaciones de servicio';
+
+CREATE TABLE IF NOT EXISTS GOLD.dim_product (
+    product_name    VARCHAR(50),
+    average_price   NUMBER(12,2)
+)
+COMMENT = 'Dimensión de productos vendidos';
+
+CREATE TABLE IF NOT EXISTS GOLD.dim_date (
+    date_id         DATE PRIMARY KEY,
+    year            INT,
+    month           INT,
+    day_of_the_week VARCHAR(20)
+)
+COMMENT = 'Dimensión de fechas';
+
+
+----------------------------------------------------------------------
+-- Task for processing RAW layer and updating SILVER and GOLD layers: 
+----------------------------------------------------------------------
+CREATE OR REPLACE TASK SILVER.raw_processing_task
     WAREHOUSE = COMPUTE_WH
     SCHEDULE = '3 HOUR'
 WHEN
     SYSTEM$STREAM_HAS_DATA('RAW.fuel_prices_json_stream')
 AS
 BEGIN
-    -- Capturar el stream en temp table para poder usarlo en varios DMLs
+    -- Collecting the stream in a temp table for later queries
     CREATE OR REPLACE TEMP TABLE SILVER._raw_staging AS
-    SELECT * FROM RAW.fuel_prices_json_stream;
+    SELECT
+        ingestion_ts,
+        payload,
+        source_url
+    FROM RAW.fuel_prices_json_stream;
 
-    -- Merge de estaciones en dim_station
+    -- Flatten and unpivot prices into a shared temp table
+    CREATE OR REPLACE TEMP TABLE SILVER._raw_prices AS
+    SELECT
+        r.ingestion_ts::TIMESTAMP_NTZ AS ingestion_ts,
+        r.ideess,
+        unp.product,
+        REPLACE(unp.price_str, ',', '.')::FLOAT AS price_eur_l
+    FROM (
+        SELECT
+            s.ingestion_ts,
+            r.value:IDEESS::VARCHAR AS ideess,
+            r.value:"Precio Gasoleo A"::VARCHAR      AS "Gasoleo A",
+            r.value:"Precio Gasolina 95 E5"::VARCHAR  AS "Gasolina 95 E5",
+            r.value:"Precio Adblue"::VARCHAR          AS "AdBlue"
+        FROM SILVER._raw_staging s,
+             LATERAL FLATTEN(input => s.payload:ListaEESSPrecio) r
+    ) r
+    UNPIVOT (
+        price_str FOR product IN ("Gasoleo A", "Gasolina 95 E5", "AdBlue")
+    ) unp
+    WHERE unp.price_str != '';
+
+
+    -- Merge of new stations into dim_station in SILVER
     MERGE INTO SILVER.dim_station AS t
     USING (
         SELECT DISTINCT
@@ -83,41 +154,73 @@ BEGIN
     ) AS src
     ON t.ideess = src.ideess
     WHEN MATCHED THEN UPDATE SET
-        rotulo      = src.rotulo,       direccion   = src.direccion, cp = src.cp,
-        municipio   = src.municipio,    provincia   = src.provincia, idccaa = src.idccaa,
-        latitud     = src.latitud,      longitud    = src.longitud
+        rotulo    = src.rotulo,     direccion = src.direccion,  cp = src.cp,
+        municipio = src.municipio,  provincia = src.provincia,  idccaa = src.idccaa,
+        latitud   = src.latitud,    longitud  = src.longitud
     WHEN NOT MATCHED THEN INSERT
         (ideess, rotulo, direccion, cp, municipio, provincia, idccaa, latitud, longitud)
-        VALUES (src.ideess, src.rotulo, src.direccion, src.cp,
-                src.municipio, src.provincia, src.idccaa, src.latitud, src.longitud);
+        VALUES (src.ideess,     src.rotulo,  src.direccion,  src.cp,      src.municipio,
+                src.provincia,  src.idccaa,  src.latitud,    src.longitud);
 
 
-    -- Insertar precios solo de los 3 productos (AdBlue solo si tiene valor)
+    -- Insert of the 3 products' new prices in SILVER
     INSERT INTO SILVER.fct_price_snapshot (ingestion_ts, ideess, product, price_eur_l)
+    SELECT ingestion_ts, ideess, product, price_eur_l
+    FROM SILVER._raw_prices;
+
+
+    -- Insert new dates into GOLD.dim_date
+    INSERT INTO GOLD.dim_date (date_id, year, month, day_of_the_week)
+    SELECT DISTINCT
+        s.ingestion_ts::DATE,
+        YEAR(s.ingestion_ts::DATE),
+        MONTH(s.ingestion_ts::DATE),
+        DAYNAME(s.ingestion_ts::DATE)
+    FROM SILVER._raw_staging s
+    WHERE NOT EXISTS (
+        SELECT 1 FROM GOLD.dim_date d WHERE d.date_id = s.ingestion_ts::DATE
+    );
+
+    -- Insert new prices into GOLD.fact_fuel_price
+    INSERT INTO GOLD.fact_fuel_price (date_id, ingestion_ts, ideess, product, price)
     SELECT
-        sub.ingestion_ts::TIMESTAMP_NTZ,
-        sub.ideess,
-        sub.product,
-        REPLACE(sub.price_str, ',', '.')::FLOAT AS price_eur_l
-    FROM (
-        SELECT
-            CAST(s.ingestion_ts              AS TIMESTAMP_NTZ) AS ingestion_ts,
-            CAST(r.value:IDEESS                    AS VARCHAR) AS ideess,
-            CAST(r.value:"Precio Gasoleo A"        AS VARCHAR) AS "Gasoleo A",
-            CAST(r.value:"Precio Gasolina 95 E5"   AS VARCHAR) AS "Gasolina 95 E5",
-            CAST(r.value:"Precio Adblue"           AS VARCHAR) AS "AdBlue"
-        FROM SILVER._raw_staging s,
-             LATERAL FLATTEN(input => s.payload:ListaEESSPrecio) r
-    ) sub
-    UNPIVOT (
-        price_str FOR product IN (
-            "Gasoleo A",
-            "Gasolina 95 E5",
-            "AdBlue"
-        )
-    )
-    WHERE price_str != '';
+        ingestion_ts::DATE,
+        ingestion_ts,
+        ideess,
+        product,
+        price_eur_l::NUMBER(12,2) AS price
+    FROM SILVER._raw_prices;
+
+    -- Insert new stations into GOLD.dim_station
+    INSERT INTO GOLD.dim_station (ideess, rotulo, direccion, cp, municipio, provincia, idccaa, latitud, longitud)
+    SELECT DISTINCT
+        CAST(r.value:IDEESS        AS VARCHAR) AS ideess,
+        CAST(r.value:"Rótulo"      AS VARCHAR) AS rotulo,
+        CAST(r.value:"Dirección"   AS VARCHAR) AS direccion,
+        CAST(r.value:"C.P."        AS VARCHAR) AS cp,
+        CAST(r.value:Municipio     AS VARCHAR) AS municipio,
+        CAST(r.value:Provincia     AS VARCHAR) AS provincia,
+        CAST(r.value:IDCCAA        AS VARCHAR) AS idccaa,
+        CAST(REPLACE(r.value:Latitud::VARCHAR, ',', '.')          AS FLOAT) AS latitud,
+        CAST(REPLACE(r.value:"Longitud (WGS84)"::VARCHAR, ',', '.') AS FLOAT) AS longitud
+    FROM SILVER._raw_staging s,
+         LATERAL FLATTEN(input => s.payload:ListaEESSPrecio) r
+    WHERE NOT EXISTS (
+        SELECT 1 FROM GOLD.dim_station d WHERE d.ideess = r.value:IDEESS::VARCHAR
+    );
+
+    -- Update average prices in GOLD.dim_product
+    MERGE INTO GOLD.dim_product AS t
+    USING (
+        SELECT product, ROUND(AVG(price_eur_l), 2) AS avg_price
+        FROM SILVER.fct_price_snapshot
+        GROUP BY product
+    ) AS src
+    ON t.product_name = src.product
+    WHEN MATCHED THEN UPDATE SET average_price = src.avg_price
+    WHEN NOT MATCHED THEN INSERT (product_name, average_price)
+        VALUES (src.product, src.avg_price);
 END;
 
--- Habilitar el task
-ALTER TASK SILVER.raw_to_silver_task RESUME;
+-- Enable task
+ALTER TASK SILVER.raw_processing_task RESUME;

@@ -104,11 +104,14 @@ COMMENT = 'Dimensión de fechas';
 CREATE TASK IF NOT EXISTS SILVER.raw_processing_task
     WAREHOUSE = COMPUTE_WH
     SCHEDULE = 'USING CRON 5 */3 * * * UTC'
-WHEN
-    SYSTEM$STREAM_HAS_DATA('RAW.fuel_prices_json_stream')
-    OR (SELECT COUNT(1) FROM SILVER.fct_price_snapshot) = 0
 AS
 BEGIN
+    -- Skip if nothing to do: SILVER populated and stream empty
+    IF ((SELECT COUNT(1) FROM SILVER.fct_price_snapshot) > 0
+        AND NOT SYSTEM$STREAM_HAS_DATA('RAW.fuel_prices_json_stream')) THEN
+        RETURN;
+    END IF;
+
     -- Incremental or recovery path
     IF ((SELECT COUNT(1) FROM SILVER.fct_price_snapshot) = 0) THEN
         TRUNCATE TABLE SILVER.fct_price_snapshot;

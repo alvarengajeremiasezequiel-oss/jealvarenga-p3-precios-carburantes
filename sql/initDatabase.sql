@@ -195,18 +195,24 @@ BEGIN
         price_eur_l::NUMBER(12,3) AS price
     FROM SILVER._raw_prices;
 
-    -- Update daily aggregation columns for all affected dates
-    UPDATE GOLD.fact_fuel_price t
-    SET (daily_avg_price, daily_min_price, daily_max_price) = (
+    -- Update daily aggregation columns for current date
+    MERGE INTO GOLD.fact_fuel_price AS t
+    USING (
         SELECT
-            ROUND(AVG(price), 2),
-            ROUND(MIN(price), 2),
-            ROUND(MAX(price), 2)
-        FROM GOLD.fact_fuel_price s
-        WHERE s.date_id = t.date_id AND s.product = t.product
-        GROUP BY s.date_id, s.product
-    )
-    WHERE t.date_id IN (SELECT DISTINCT ingestion_ts::DATE FROM SILVER._raw_prices);
+            date_id,
+            product,
+            ROUND(AVG(price), 2) AS daily_avg_price,
+            ROUND(MIN(price), 2) AS daily_min_price,
+            ROUND(MAX(price), 2) AS daily_max_price
+        FROM GOLD.fact_fuel_price
+        WHERE date_id IN (SELECT DISTINCT ingestion_ts::DATE FROM SILVER._raw_prices)
+        GROUP BY date_id, product
+    ) AS s
+    ON t.date_id = s.date_id AND t.product = s.product
+    WHEN MATCHED THEN UPDATE SET
+        t.daily_avg_price = s.daily_avg_price,
+        t.daily_min_price = s.daily_min_price,
+        t.daily_max_price = s.daily_max_price;
 
     -- Insert new stations into GOLD.dim_station
     INSERT INTO GOLD.dim_station (ideess, rotulo, direccion, cp, municipio, provincia, idccaa, latitud, longitud)
@@ -229,14 +235,14 @@ BEGIN
     -- Update average prices in GOLD.dim_product
     MERGE INTO GOLD.dim_product AS t
     USING (
-        SELECT product, ROUND(AVG(price_eur_l), 2) AS daily_avg_price
+        SELECT product, ROUND(AVG(price_eur_l), 2) AS average_price
         FROM SILVER.fct_price_snapshot
         GROUP BY product
     ) AS src
     ON t.product_name = src.product
-    WHEN MATCHED THEN UPDATE SET average_price = src.daily_avg_price
+    WHEN MATCHED THEN UPDATE SET average_price = src.average_price
     WHEN NOT MATCHED THEN INSERT (product_name, average_price)
-        VALUES (src.product, src.daily_avg_price);
+        VALUES (src.product, src.average_price);
 END;
 
 -- Enable task

@@ -63,9 +63,12 @@ CREATE TABLE IF NOT EXISTS GOLD.fact_fuel_price (
     ingestion_ts  TIMESTAMP_NTZ,
     ideess        VARCHAR(20),
     product       VARCHAR(50),
-    price         NUMBER(12,2)
+    price         NUMBER(12,2),
+    daily_avg_price     NUMBER(12,2),
+    daily_min_price     NUMBER(12,2),
+    daily_max_price     NUMBER(12,2)
 )
-COMMENT = 'Histórico de precios de Gasoleo A, Gasolina 95 E5 y AdBlue por estación';
+COMMENT = 'Histórico de precios de Gasoleo A, Gasolina 95 E5 y AdBlue por estación con agregación diaria';
 
 CREATE TABLE IF NOT EXISTS GOLD.dim_station (
     ideess     VARCHAR(20),
@@ -98,9 +101,9 @@ COMMENT = 'Dimensión de fechas';
 ----------------------------------------------------------------------
 -- Task for processing RAW layer and updating SILVER and GOLD layers: 
 ----------------------------------------------------------------------
-CREATE OR REPLACE TASK SILVER.raw_processing_task
+CREATE TASK IF NOT EXISTS SILVER.raw_processing_task
     WAREHOUSE = COMPUTE_WH
-    SCHEDULE = '3 HOUR'
+    SCHEDULE = 'USING CRON 5 */3 * * * UTC'
 WHEN
     SYSTEM$STREAM_HAS_DATA('RAW.fuel_prices_json_stream')
 AS
@@ -192,6 +195,19 @@ BEGIN
         price_eur_l::NUMBER(12,3) AS price
     FROM SILVER._raw_prices;
 
+    -- Update daily aggregation columns for all affected dates
+    UPDATE GOLD.fact_fuel_price t
+    SET (daily_avg_price, daily_min_price, daily_max_price) = (
+        SELECT
+            ROUND(AVG(price), 2),
+            ROUND(MIN(price), 2),
+            ROUND(MAX(price), 2)
+        FROM GOLD.fact_fuel_price s
+        WHERE s.date_id = t.date_id AND s.product = t.product
+        GROUP BY s.date_id, s.product
+    )
+    WHERE t.date_id IN (SELECT DISTINCT ingestion_ts::DATE FROM SILVER._raw_prices);
+
     -- Insert new stations into GOLD.dim_station
     INSERT INTO GOLD.dim_station (ideess, rotulo, direccion, cp, municipio, provincia, idccaa, latitud, longitud)
     SELECT DISTINCT
@@ -213,14 +229,14 @@ BEGIN
     -- Update average prices in GOLD.dim_product
     MERGE INTO GOLD.dim_product AS t
     USING (
-        SELECT product, ROUND(AVG(price_eur_l), 2) AS avg_price
+        SELECT product, ROUND(AVG(price_eur_l), 2) AS daily_avg_price
         FROM SILVER.fct_price_snapshot
         GROUP BY product
     ) AS src
     ON t.product_name = src.product
-    WHEN MATCHED THEN UPDATE SET average_price = src.avg_price
+    WHEN MATCHED THEN UPDATE SET average_price = src.daily_avg_price
     WHEN NOT MATCHED THEN INSERT (product_name, average_price)
-        VALUES (src.product, src.avg_price);
+        VALUES (src.product, src.daily_avg_price);
 END;
 
 -- Enable task

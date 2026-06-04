@@ -23,7 +23,7 @@ def _make_ssl_context():
     return context
 
 
-def fetch_data(max_retries=5) -> dict:
+def fetch_data(max_retries=3) -> dict:
     ssl_context = _make_ssl_context()
     https_handler = urllib.request.HTTPSHandler(context=ssl_context)
     opener = urllib.request.build_opener(https_handler)

@@ -125,15 +125,6 @@ def insert_raw_json(conn, ingestion_ts: str, payload_json: str, source_url: str)
         )
         return cur.rowcount
 
-def update_stream(conn):
-    with conn.cursor() as cur:
-        cur.execute(
-            """
-            EXECUTE TASK SILVER.raw_processing_task;
-            """
-        )
-
-
 def main():
 
     json_files = sorted(RAW_DIR.glob("*.json"))
@@ -171,7 +162,6 @@ def main():
         rows = insert_raw_json(conn, ingestion_ts, payload, source_url)
         if rows:
             total_loaded += rows
-            update_stream(conn)
         print(f"  Loaded {filepath.name} ({rows} row(s))")
 
     conn.close()

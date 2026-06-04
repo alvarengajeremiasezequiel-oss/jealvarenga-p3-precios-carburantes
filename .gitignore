@@ -1,0 +1,4 @@
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
+.env
+snowflake_keys/

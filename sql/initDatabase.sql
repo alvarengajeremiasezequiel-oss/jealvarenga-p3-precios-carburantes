@@ -106,15 +106,25 @@ CREATE TASK IF NOT EXISTS SILVER.raw_processing_task
     SCHEDULE = 'USING CRON 5 */3 * * * UTC'
 WHEN
     SYSTEM$STREAM_HAS_DATA('RAW.fuel_prices_json_stream')
+    OR (SELECT COUNT(1) FROM SILVER.fct_price_snapshot) = 0
 AS
 BEGIN
-    -- Collecting the stream in a temp table for later queries
-    CREATE OR REPLACE TEMP TABLE SILVER._raw_staging AS
-    SELECT
-        ingestion_ts,
-        payload,
-        source_url
-    FROM RAW.fuel_prices_json_stream;
+    -- Incremental or recovery path
+    IF ((SELECT COUNT(1) FROM SILVER.fct_price_snapshot) = 0) THEN
+        TRUNCATE TABLE SILVER.fct_price_snapshot;
+        TRUNCATE TABLE GOLD.fact_fuel_price;
+
+        CREATE OR REPLACE TEMP TABLE SILVER._raw_staging AS
+        SELECT ingestion_ts, payload, source_url
+        FROM RAW.fuel_prices_json_stream
+        UNION
+        SELECT ingestion_ts, payload, source_url
+        FROM RAW.fuel_prices_json;
+    ELSE
+        CREATE OR REPLACE TEMP TABLE SILVER._raw_staging AS
+        SELECT ingestion_ts, payload, source_url
+        FROM RAW.fuel_prices_json_stream;
+    END IF;
 
     -- Flatten and unpivot prices into a shared temp table
     CREATE OR REPLACE TEMP TABLE SILVER._raw_prices AS
@@ -232,7 +242,7 @@ BEGIN
         SELECT 1 FROM GOLD.dim_station d WHERE d.ideess = r.value:IDEESS::VARCHAR
     );
 
-    -- Update average prices in GOLD.dim_product
+    -- Update average_price in GOLD.dim_product
     MERGE INTO GOLD.dim_product AS t
     USING (
         SELECT product, ROUND(AVG(price_eur_l), 2) AS average_price

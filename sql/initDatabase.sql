@@ -156,18 +156,32 @@ BEGIN
     -- Merge of new stations into dim_station in SILVER
     MERGE INTO SILVER.dim_station AS t
     USING (
-        SELECT DISTINCT
-            CAST(r.value:IDEESS        AS VARCHAR) AS ideess,
-            CAST(r.value:"Rótulo"      AS VARCHAR) AS rotulo,
-            CAST(r.value:"Dirección"   AS VARCHAR) AS direccion,
-            CAST(r.value:"C.P."        AS VARCHAR) AS cp,
-            CAST(r.value:Municipio     AS VARCHAR) AS municipio,
-            CAST(r.value:Provincia     AS VARCHAR) AS provincia,
-            CAST(r.value:IDCCAA        AS VARCHAR) AS idccaa,
-            CAST(REPLACE(r.value:Latitud::VARCHAR, ',', '.')          AS FLOAT) AS latitud,
-            CAST(REPLACE(r.value:"Longitud (WGS84)"::VARCHAR, ',', '.') AS FLOAT) AS longitud
-        FROM SILVER._raw_staging s,
-             LATERAL FLATTEN(input => s.payload:ListaEESSPrecio) r
+        SELECT
+            ideess,
+            rotulo,
+            direccion,
+            cp,
+            municipio,
+            provincia,
+            idccaa,
+            latitud,
+            longitud
+        FROM (
+            SELECT
+                s.ingestion_ts,
+                CAST(r.value:IDEESS        AS VARCHAR) AS ideess,
+                CAST(r.value:"Rótulo"      AS VARCHAR) AS rotulo,
+                CAST(r.value:"Dirección"   AS VARCHAR) AS direccion,
+                CAST(r.value:"C.P."        AS VARCHAR) AS cp,
+                CAST(r.value:Municipio     AS VARCHAR) AS municipio,
+                CAST(r.value:Provincia     AS VARCHAR) AS provincia,
+                CAST(r.value:IDCCAA        AS VARCHAR) AS idccaa,
+                CAST(REPLACE(r.value:Latitud::VARCHAR, ',', '.')          AS FLOAT) AS latitud,
+                CAST(REPLACE(r.value:"Longitud (WGS84)"::VARCHAR, ',', '.') AS FLOAT) AS longitud
+            FROM SILVER._raw_staging s,
+                 LATERAL FLATTEN(input => s.payload:ListaEESSPrecio) r
+        )
+        QUALIFY ROW_NUMBER() OVER (PARTITION BY ideess ORDER BY ingestion_ts DESC) = 1
     ) AS src
     ON t.ideess = src.ideess
     WHEN MATCHED THEN UPDATE SET
@@ -230,18 +244,32 @@ BEGIN
     -- Merge new/updated stations into GOLD.dim_station
     MERGE INTO GOLD.dim_station AS t
     USING (
-        SELECT DISTINCT
-            CAST(r.value:IDEESS        AS VARCHAR) AS ideess,
-            CAST(r.value:"Rótulo"      AS VARCHAR) AS rotulo,
-            CAST(r.value:"Dirección"   AS VARCHAR) AS direccion,
-            CAST(r.value:"C.P."        AS VARCHAR) AS cp,
-            CAST(r.value:Municipio     AS VARCHAR) AS municipio,
-            CAST(r.value:Provincia     AS VARCHAR) AS provincia,
-            CAST(r.value:IDCCAA        AS VARCHAR) AS idccaa,
-            CAST(REPLACE(r.value:Latitud::VARCHAR, ',', '.')          AS FLOAT) AS latitud,
-            CAST(REPLACE(r.value:"Longitud (WGS84)"::VARCHAR, ',', '.') AS FLOAT) AS longitud
-        FROM SILVER._raw_staging s,
-             LATERAL FLATTEN(input => s.payload:ListaEESSPrecio) r
+        SELECT
+            ideess,
+            rotulo,
+            direccion,
+            cp,
+            municipio,
+            provincia,
+            idccaa,
+            latitud,
+            longitud
+        FROM (
+            SELECT
+                s.ingestion_ts,
+                CAST(r.value:IDEESS        AS VARCHAR) AS ideess,
+                CAST(r.value:"Rótulo"      AS VARCHAR) AS rotulo,
+                CAST(r.value:"Dirección"   AS VARCHAR) AS direccion,
+                CAST(r.value:"C.P."        AS VARCHAR) AS cp,
+                CAST(r.value:Municipio     AS VARCHAR) AS municipio,
+                CAST(r.value:Provincia     AS VARCHAR) AS provincia,
+                CAST(r.value:IDCCAA        AS VARCHAR) AS idccaa,
+                CAST(REPLACE(r.value:Latitud::VARCHAR, ',', '.')          AS FLOAT) AS latitud,
+                CAST(REPLACE(r.value:"Longitud (WGS84)"::VARCHAR, ',', '.') AS FLOAT) AS longitud
+            FROM SILVER._raw_staging s,
+                 LATERAL FLATTEN(input => s.payload:ListaEESSPrecio) r
+        )
+        QUALIFY ROW_NUMBER() OVER (PARTITION BY ideess ORDER BY ingestion_ts DESC) = 1
     ) AS src
     ON t.ideess = src.ideess
     WHEN MATCHED THEN UPDATE SET

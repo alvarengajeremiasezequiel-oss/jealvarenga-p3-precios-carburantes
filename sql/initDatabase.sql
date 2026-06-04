@@ -227,23 +227,31 @@ BEGIN
         t.daily_min_price = s.daily_min_price,
         t.daily_max_price = s.daily_max_price;
 
-    -- Insert new stations into GOLD.dim_station
-    INSERT INTO GOLD.dim_station (ideess, rotulo, direccion, cp, municipio, provincia, idccaa, latitud, longitud)
-    SELECT DISTINCT
-        CAST(r.value:IDEESS        AS VARCHAR) AS ideess,
-        CAST(r.value:"Rótulo"      AS VARCHAR) AS rotulo,
-        CAST(r.value:"Dirección"   AS VARCHAR) AS direccion,
-        CAST(r.value:"C.P."        AS VARCHAR) AS cp,
-        CAST(r.value:Municipio     AS VARCHAR) AS municipio,
-        CAST(r.value:Provincia     AS VARCHAR) AS provincia,
-        CAST(r.value:IDCCAA        AS VARCHAR) AS idccaa,
-        CAST(REPLACE(r.value:Latitud::VARCHAR, ',', '.')          AS FLOAT) AS latitud,
-        CAST(REPLACE(r.value:"Longitud (WGS84)"::VARCHAR, ',', '.') AS FLOAT) AS longitud
-    FROM SILVER._raw_staging s,
-         LATERAL FLATTEN(input => s.payload:ListaEESSPrecio) r
-    WHERE NOT EXISTS (
-        SELECT 1 FROM GOLD.dim_station d WHERE d.ideess = r.value:IDEESS::VARCHAR
-    );
+    -- Merge new/updated stations into GOLD.dim_station
+    MERGE INTO GOLD.dim_station AS t
+    USING (
+        SELECT DISTINCT
+            CAST(r.value:IDEESS        AS VARCHAR) AS ideess,
+            CAST(r.value:"Rótulo"      AS VARCHAR) AS rotulo,
+            CAST(r.value:"Dirección"   AS VARCHAR) AS direccion,
+            CAST(r.value:"C.P."        AS VARCHAR) AS cp,
+            CAST(r.value:Municipio     AS VARCHAR) AS municipio,
+            CAST(r.value:Provincia     AS VARCHAR) AS provincia,
+            CAST(r.value:IDCCAA        AS VARCHAR) AS idccaa,
+            CAST(REPLACE(r.value:Latitud::VARCHAR, ',', '.')          AS FLOAT) AS latitud,
+            CAST(REPLACE(r.value:"Longitud (WGS84)"::VARCHAR, ',', '.') AS FLOAT) AS longitud
+        FROM SILVER._raw_staging s,
+             LATERAL FLATTEN(input => s.payload:ListaEESSPrecio) r
+    ) AS src
+    ON t.ideess = src.ideess
+    WHEN MATCHED THEN UPDATE SET
+        rotulo    = src.rotulo,     direccion = src.direccion,  cp = src.cp,
+        municipio = src.municipio,  provincia = src.provincia,  idccaa = src.idccaa,
+        latitud   = src.latitud,    longitud  = src.longitud
+    WHEN NOT MATCHED THEN INSERT
+        (ideess, rotulo, direccion, cp, municipio, provincia, idccaa, latitud, longitud)
+        VALUES (src.ideess,     src.rotulo,  src.direccion,  src.cp,      src.municipio,
+                src.provincia,  src.idccaa,  src.latitud,    src.longitud);
 
     -- Update average_price in GOLD.dim_product
     MERGE INTO GOLD.dim_product AS t

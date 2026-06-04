@@ -76,7 +76,7 @@ def exec_sql_file(conn, path: str, db_name: str = None):
         # BEGIN END blocks treated as single statement
         if stripped == "BEGIN":
             depth += 1
-        if stripped.startswith("END"):
+        if stripped in ("END", "END;"):
             depth -= 1
         current.append(line)
         if depth == 0 and line.rstrip().endswith(";"):

@@ -24,13 +24,14 @@ GitHub Actions ejecuta el pipeline cada 3 horas mediante el workflow `.github/wo
 #### loadData.py
 - Consulta Snowflake para evitar insertar timestamps ya cargados en ejecuciones posteriores.
 - Lee los archivos de `data/raw/` y los inserta en la tabla `RAW.fuel_prices_json` de Snowflake (`ingestion_ts`, `payload` VARIANT, `source_url`).
-- Ejecuta el task `raw_to_silver_task` manualmente para actualizar las capas SILVER y GOLD.
+- Crea el task `raw_to_silver_task` que actualiza las capas SILVER y GOLD si no existe.
+- Reanuda el task si se acaba de crear.
 
 ## Tecnologías utilizadas
 El proyecto emplea el conector de snowflake para python, requiere una cuenta de snowflake con un warehouse existente, github actions y finalmente un cliente de powerBI para la visualización del informe.
 
 ## Pasos para ejecutar el proyecto
-Las credenciales de Snowflake se pasan como secretos de GitHub para la ejecución en github actions del pipeline:
+Se deben tener un par de claves de snowflake para ejecutar el pipeline. Se pueden crear con `src/generateSnowflakeKeypair.py`. El script `register_public_key.sql` generado en `snowflake_keys/` debe editarse con el nombre del usuario de snowflake en **YOUR USER** y ejecutarse en snowflake. Las credenciales de Snowflake se pasan como secretos de GitHub para la ejecución en github actions del pipeline:
 
 | Variable | Descripción |
 |---|---|

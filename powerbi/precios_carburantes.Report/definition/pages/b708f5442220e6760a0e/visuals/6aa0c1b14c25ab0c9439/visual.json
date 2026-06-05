@@ -4,10 +4,10 @@
   "position": {
     "x": 925,
     "y": 440,
-    "z": 2005,
+    "z": 7000,
     "height": 280,
     "width": 355,
-    "tabOrder": 2005
+    "tabOrder": 7000
   },
   "visual": {
     "visualType": "clusteredBarChart",
@@ -27,8 +27,9 @@
                 }
               },
               "queryRef": "FACT_FUEL_PRICE.IDEESS",
-              "nativeQueryRef": "IDEESS",
-              "active": true
+              "nativeQueryRef": "Estación",
+              "active": true,
+              "displayName": "Estación"
             }
           ]
         },
@@ -51,7 +52,8 @@
                 }
               },
               "queryRef": "Sum(FACT_FUEL_PRICE.PRICE)",
-              "nativeQueryRef": "Average of PRICE"
+              "nativeQueryRef": "Precio",
+              "displayName": "Precio"
             }
           ]
         }
@@ -186,7 +188,7 @@
         }
       },
       {
-        "name": "8299f093324bace89c76",
+        "name": "6a19aaccd6ba7d4507c0",
         "field": {
           "Aggregation": {
             "Expression": {
@@ -204,6 +206,7 @@
         },
         "type": "Advanced"
       }
-    ]
+    ],
+    "filterSortOrder": "Ascending"
   }
 }

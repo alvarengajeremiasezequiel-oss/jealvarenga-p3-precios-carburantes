@@ -10,8 +10,8 @@
       "nodes": [
         {
           "location": {
-            "x": 308.89104387357736,
-            "y": 366.74132253985596
+            "x": 315.00881808378966,
+            "y": 445.3181449647202
           },
           "nodeIndex": "DIM_DATE",
           "nodeLineageTag": "bdbe17df-a7ba-4027-9105-a5c5e9c4a55f",
@@ -19,12 +19,12 @@
             "height": 176,
             "width": 234
           },
-          "zIndex": 1
+          "zIndex": 4
         },
         {
           "location": {
-            "x": 632.84437813738282,
-            "y": 78.92265624537815
+            "x": 617.41335315036042,
+            "y": 305.36814293892161
           },
           "nodeIndex": "DIM_PRODUCT",
           "nodeLineageTag": "044b4afa-1f6b-4fb2-ae2b-3499e8aba42b",
@@ -32,12 +32,12 @@
             "height": 145,
             "width": 234
           },
-          "zIndex": 2
+          "zIndex": 1
         },
         {
           "location": {
-            "x": 2.8186662944777936,
-            "y": 0
+            "x": 12.537241225299255,
+            "y": 207.18784699850366
           },
           "nodeIndex": "DIM_STATION",
           "nodeLineageTag": "7b062e6b-b609-4562-903b-3623d8f08faa",
@@ -45,24 +45,24 @@
             "height": 311.50266461962781,
             "width": 234
           },
-          "zIndex": 3
+          "zIndex": 2
         },
         {
           "location": {
-            "x": 312.02022748766296,
-            "y": 63.419991625750285
+            "x": 315.15453779398774,
+            "y": 0
           },
           "nodeIndex": "FACT_FUEL_PRICE",
           "nodeLineageTag": "c37bbc8f-b851-4b08-a67b-ca10e7852436",
           "size": {
-            "height": 211.27466517791117,
+            "height": 353.88578411569029,
             "width": 234
           },
-          "zIndex": 4
+          "zIndex": 3
         }
       ],
       "name": "All tables",
-      "zoomValue": 70.95554390096882,
+      "zoomValue": 63.809891316891722,
       "pinKeyFieldsToTop": false,
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,

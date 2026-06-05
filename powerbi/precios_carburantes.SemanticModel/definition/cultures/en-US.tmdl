@@ -1,2 +1,3914 @@
 cultureInfo en-US
 
+	linguisticMetadata =
+			{
+			  "Version": "4.1.0",
+			  "Language": "en-US",
+			  "Entities": {
+			    "dim_date": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_DATE"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "dim date": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "DIM_DATE": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "dim moment": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "dim period": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        }
+			      ]
+			    },
+			    "dim_date.date_id": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_DATE",
+			          "ConceptualProperty": "DATE_ID"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "date id": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "DATE_ID": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "date": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        },
+			        {
+			          "date identification": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "date identity": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "date identifier": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "date credential": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "moment id": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "period id": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "dim_date.date_id.date_hierarchy": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_DATE",
+			          "VariationSource": "DATE_ID",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Date Hierarchy"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "date hierarchy id": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "date hierarchy": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "hierarchy id": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "dim_date.date_id.year": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_DATE",
+			          "VariationSource": "DATE_ID",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Date Hierarchy",
+			          "HierarchyLevel": "Year"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "year id": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "year": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "date id year": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "id year": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "date id yr": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "year identification": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "year identity": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "year identifier": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "id yr": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "yr": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "year credential": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "moment id year": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "date identification year": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "date identity year": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "dim_date.date_id.quarter": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_DATE",
+			          "VariationSource": "DATE_ID",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Date Hierarchy",
+			          "HierarchyLevel": "Quarter"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "quarter id": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "quarter": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "date id quarter": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "id quarter": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "date id qtr": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.846
+			          }
+			        },
+			        {
+			          "id qtr": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.833
+			          }
+			        },
+			        {
+			          "qtr": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.818
+			          }
+			        },
+			        {
+			          "quarter identification": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "quarter identity": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "quarter identifier": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "quarter credential": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "qtr id": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.667
+			          }
+			        },
+			        {
+			          "moment id quarter": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "date identification quarter": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "dim_date.date_id.month": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_DATE",
+			          "VariationSource": "DATE_ID",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Date Hierarchy",
+			          "HierarchyLevel": "Month"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "month id": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "month": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "date id month": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "id month": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "date id mth": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "month identification": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "month identity": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "month identifier": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "id mth": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "mth": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "month credential": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "moment id month": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "date identification month": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "date identity month": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "dim_date.date_id.day": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_DATE",
+			          "VariationSource": "DATE_ID",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Date Hierarchy",
+			          "HierarchyLevel": "Day"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "day id": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "day": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "date id day": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "id day": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "day identification": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "day identity": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "day identifier": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "day credential": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "moment id day": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "date identification day": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "date identity day": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "date identifier day": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "identification day": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "identity day": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "dim_date.year": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_DATE",
+			          "ConceptualProperty": "YEAR"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "year": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "yr": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        }
+			      ]
+			    },
+			    "dim_date.month": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_DATE",
+			          "ConceptualProperty": "MONTH"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "month": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "mth": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        }
+			      ]
+			    },
+			    "dim_date.day_of_the_week": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_DATE",
+			          "ConceptualProperty": "DAY_OF_THE_WEEK"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "day of the week": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "DAY_OF_THE_WEEK": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_product": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_PRODUCT"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "dim product": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "DIM_PRODUCT": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "product": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "dim artifact": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "artifact": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "dim item": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "dim merchandise": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "dim produce": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "item": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "merchandise": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "produce": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        }
+			      ]
+			    },
+			    "dim_product.product_name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_PRODUCT",
+			          "ConceptualProperty": "PRODUCT_NAME"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "product name": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "name": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "PRODUCT_NAME": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "product": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "artifact": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "product nickname": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "product title": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "product label": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "product tag": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "item": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "merchandise": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "produce": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "artifact name": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "item name": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "Producto": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ],
+			      "NameType": "Name"
+			    },
+			    "dim_product.average_price": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_PRODUCT",
+			          "ConceptualProperty": "AVERAGE_PRICE"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "average price": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "AVERAGE_PRICE": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "average value": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "average worth": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "average fee": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "average charge": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "average amount": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "average bill": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "average rate": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "average expense": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "average cost": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "average outlay": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        }
+			      ]
+			    },
+			    "dim_station": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_STATION"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "dim station": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "DIM_STATION": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "station": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "dim location": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "dim situation": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "dim status": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "location": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "situation": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "status": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "dim position": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "dim place": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "dim post": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "dim posting": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        }
+			      ]
+			    },
+			    "dim_station.ideess": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_STATION",
+			          "ConceptualProperty": "IDEESS"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ideess": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Estación": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dim_station.rotulo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_STATION",
+			          "ConceptualProperty": "ROTULO"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "rotulo": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dim_station.direccion": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_STATION",
+			          "ConceptualProperty": "DIRECCION"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "direccion": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dim_station.cp": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_STATION",
+			          "ConceptualProperty": "CP"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cp": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dim_station.municipio": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_STATION",
+			          "ConceptualProperty": "MUNICIPIO"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "municipio": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dim_station.provincia": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_STATION",
+			          "ConceptualProperty": "PROVINCIA"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "provincia": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dim_station.idccaa": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_STATION",
+			          "ConceptualProperty": "IDCCAA"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "idccaa": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dim_station.latitud": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_STATION",
+			          "ConceptualProperty": "LATITUD"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "latitud": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dim_station.longitud": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_STATION",
+			          "ConceptualProperty": "LONGITUD"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "longitud": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fact_fuel_price": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FACT_FUEL_PRICE"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "fact fuel price": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "FACT_FUEL_PRICE": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "fuel price": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "fact fuel value": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "fact fuel worth": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "fact fuel fee": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "fact fuel charge": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "fact fuel amount": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "fact fuel bill": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "fact fuel rate": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "fact fuel expense": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "fact fuel cost": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "fact fuel outlay": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        }
+			      ]
+			    },
+			    "fact_fuel_price.date_id": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FACT_FUEL_PRICE",
+			          "ConceptualProperty": "DATE_ID"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "date id": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "DATE_ID": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "date": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        },
+			        {
+			          "date identification": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "date identity": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "date identifier": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "date credential": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "moment id": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "period id": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "fact_fuel_price.ingestion_ts": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FACT_FUEL_PRICE",
+			          "ConceptualProperty": "INGESTION_TS"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ingestion ts": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "INGESTION_TS": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "date": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        },
+			        {
+			          "Tiempo": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "fact_fuel_price.ingestion_ts.date_hierarchy": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FACT_FUEL_PRICE",
+			          "VariationSource": "INGESTION_TS",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Date Hierarchy"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ingestion ts date hierarchy": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "date hierarchy": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "fact_fuel_price.ingestion_ts.year": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FACT_FUEL_PRICE",
+			          "VariationSource": "INGESTION_TS",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Date Hierarchy",
+			          "HierarchyLevel": "Year"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ingestion ts year": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "year": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "ingestion ts yr": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "yr": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "fact_fuel_price.ingestion_ts.quarter": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FACT_FUEL_PRICE",
+			          "VariationSource": "INGESTION_TS",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Date Hierarchy",
+			          "HierarchyLevel": "Quarter"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ingestion ts quarter": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "quarter": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "ingestion ts qtr": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.846
+			          }
+			        },
+			        {
+			          "qtr": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.818
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "fact_fuel_price.ingestion_ts.month": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FACT_FUEL_PRICE",
+			          "VariationSource": "INGESTION_TS",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Date Hierarchy",
+			          "HierarchyLevel": "Month"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ingestion ts month": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "month": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "ingestion ts mth": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "mth": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "fact_fuel_price.ingestion_ts.day": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FACT_FUEL_PRICE",
+			          "VariationSource": "INGESTION_TS",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Date Hierarchy",
+			          "HierarchyLevel": "Day"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ingestion ts day": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "day": {
+			            "State": "Generated"
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "fact_fuel_price.ideess": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FACT_FUEL_PRICE",
+			          "ConceptualProperty": "IDEESS"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "ideess": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Estación": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "fact_fuel_price.product": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FACT_FUEL_PRICE",
+			          "ConceptualProperty": "PRODUCT"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "product": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "artifact": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "item": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "merchandise": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "produce": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        }
+			      ]
+			    },
+			    "fact_fuel_price.price": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FACT_FUEL_PRICE",
+			          "ConceptualProperty": "PRICE"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "price": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "value": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "worth": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "fee": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "charge": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "bill": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "rate": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "expense": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "cost": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "outlay": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "penalty": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.466
+			          }
+			        }
+			      ]
+			    },
+			    "fact_fuel_price.daily_avg_price": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FACT_FUEL_PRICE",
+			          "ConceptualProperty": "DAILY_AVG_PRICE"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "daily avg price": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "DAILY_AVG_PRICE": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "daily average price": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "daily avg value": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "daily avg worth": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "daily avg fee": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "daily avg charge": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "daily avg amount": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "daily avg bill": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "daily avg rate": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "daily avg expense": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "daily avg cost": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        }
+			      ]
+			    },
+			    "fact_fuel_price.daily_min_price": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FACT_FUEL_PRICE",
+			          "ConceptualProperty": "DAILY_MIN_PRICE"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "daily min price": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "DAILY_MIN_PRICE": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "min price": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "daily minimum price": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "minimum price": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "daily min value": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "daily min worth": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "daily min fee": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "daily min charge": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "daily min amount": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "daily min bill": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "daily min rate": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "daily min expense": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        }
+			      ]
+			    },
+			    "fact_fuel_price.daily_max_price": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FACT_FUEL_PRICE",
+			          "ConceptualProperty": "DAILY_MAX_PRICE"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "daily max price": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "DAILY_MAX_PRICE": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "max price": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "daily maximum price": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "maximum price": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "daily max value": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "daily max worth": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "daily max fee": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "daily max charge": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "daily max amount": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "daily max bill": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "daily max rate": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "daily max expense": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        }
+			      ]
+			    },
+			    "fact_fuel_price.precio_actual": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FACT_FUEL_PRICE",
+			          "ConceptualProperty": "Precio actual"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "precio actual": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "precio real": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "precio existent": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "precio tangible": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        }
+			      ]
+			    },
+			    "fact_fuel_price.variacion_las_ultimas_24h": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FACT_FUEL_PRICE",
+			          "ConceptualProperty": "Variacion las ultimas 24h"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "variacion las ultimas 24h": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fact_fuel_price.variacion_la_ultima_semana": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FACT_FUEL_PRICE",
+			          "ConceptualProperty": "Variacion la ultima semana"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "variacion la ultima semana": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fact_fuel_price.precio_AdBlue": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FACT_FUEL_PRICE",
+			          "ConceptualProperty": "Precio AdBlue"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "precio AdBlue": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    }
+			  },
+			  "Relationships": {
+			    "fact_fuel_price_ingestion_ts_date_hierarchy_has_fact_fuel_price_ingestion_ts_quarter": {
+			      "Binding": {
+			        "ConceptualEntity": "FACT_FUEL_PRICE"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_fuel_price.ingestion_ts.date_hierarchy": {
+			          "Target": {
+			            "Entity": "fact_fuel_price.ingestion_ts.date_hierarchy"
+			          }
+			        },
+			        "fact_fuel_price.ingestion_ts.quarter": {
+			          "Target": {
+			            "Entity": "fact_fuel_price.ingestion_ts.quarter"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_fuel_price.ingestion_ts.date_hierarchy"
+			            },
+			            "Object": {
+			              "Role": "fact_fuel_price.ingestion_ts.quarter"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "ingestion_ts_date_hierarchies_have_ingestion_ts_quarters"
+			        }
+			      ]
+			    },
+			    "fact_fuel_price_ingestion_ts_date_hierarchy_has_fact_fuel_price_ingestion_ts_year": {
+			      "Binding": {
+			        "ConceptualEntity": "FACT_FUEL_PRICE"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_fuel_price.ingestion_ts.date_hierarchy": {
+			          "Target": {
+			            "Entity": "fact_fuel_price.ingestion_ts.date_hierarchy"
+			          }
+			        },
+			        "fact_fuel_price.ingestion_ts.year": {
+			          "Target": {
+			            "Entity": "fact_fuel_price.ingestion_ts.year"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_fuel_price.ingestion_ts.date_hierarchy"
+			            },
+			            "Object": {
+			              "Role": "fact_fuel_price.ingestion_ts.year"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "ingestion_ts_date_hierarchies_have_ingestion_ts_years"
+			        }
+			      ]
+			    },
+			    "fact_fuel_price_ingestion_ts_has_date_hierarchy": {
+			      "Binding": {
+			        "ConceptualEntity": "FACT_FUEL_PRICE"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_fuel_price.ingestion_ts": {
+			          "Target": {
+			            "Entity": "fact_fuel_price.ingestion_ts"
+			          }
+			        },
+			        "fact_fuel_price.ingestion_ts.date_hierarchy": {
+			          "Target": {
+			            "Entity": "fact_fuel_price.ingestion_ts.date_hierarchy"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_fuel_price.ingestion_ts"
+			            },
+			            "Object": {
+			              "Role": "fact_fuel_price.ingestion_ts.date_hierarchy"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "ingestion_tses_have_ingestion_ts_date_hierarchies"
+			        }
+			      ]
+			    },
+			    "dim_date_date_id_date_hierarchy_has_dim_date_date_id_day": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_DATE"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_date.date_id.date_hierarchy": {
+			          "Target": {
+			            "Entity": "dim_date.date_id.date_hierarchy"
+			          }
+			        },
+			        "dim_date.date_id.day": {
+			          "Target": {
+			            "Entity": "dim_date.date_id.day"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_date.date_id.date_hierarchy"
+			            },
+			            "Object": {
+			              "Role": "dim_date.date_id.day"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "date_hierarchy_ids_have_day_ids"
+			        }
+			      ]
+			    },
+			    "dim_date_date_id_date_hierarchy_has_dim_date_date_id_month": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_DATE"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_date.date_id.date_hierarchy": {
+			          "Target": {
+			            "Entity": "dim_date.date_id.date_hierarchy"
+			          }
+			        },
+			        "dim_date.date_id.month": {
+			          "Target": {
+			            "Entity": "dim_date.date_id.month"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_date.date_id.date_hierarchy"
+			            },
+			            "Object": {
+			              "Role": "dim_date.date_id.month"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "date_hierarchy_ids_have_month_ids"
+			        }
+			      ]
+			    },
+			    "dim_date_date_id_date_hierarchy_has_dim_date_date_id_quarter": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_DATE"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_date.date_id.date_hierarchy": {
+			          "Target": {
+			            "Entity": "dim_date.date_id.date_hierarchy"
+			          }
+			        },
+			        "dim_date.date_id.quarter": {
+			          "Target": {
+			            "Entity": "dim_date.date_id.quarter"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_date.date_id.date_hierarchy"
+			            },
+			            "Object": {
+			              "Role": "dim_date.date_id.quarter"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "date_hierarchy_ids_have_quarter_ids"
+			        }
+			      ]
+			    },
+			    "dim_date_date_id_date_hierarchy_has_dim_date_date_id_year": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_DATE"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_date.date_id.date_hierarchy": {
+			          "Target": {
+			            "Entity": "dim_date.date_id.date_hierarchy"
+			          }
+			        },
+			        "dim_date.date_id.year": {
+			          "Target": {
+			            "Entity": "dim_date.date_id.year"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_date.date_id.date_hierarchy"
+			            },
+			            "Object": {
+			              "Role": "dim_date.date_id.year"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "date_hierarchy_ids_have_year_ids"
+			        }
+			      ]
+			    },
+			    "dim_date_date_id_has_date_hierarchy": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_DATE"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_date.date_id": {
+			          "Target": {
+			            "Entity": "dim_date.date_id"
+			          }
+			        },
+			        "dim_date.date_id.date_hierarchy": {
+			          "Target": {
+			            "Entity": "dim_date.date_id.date_hierarchy"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_date.date_id"
+			            },
+			            "Object": {
+			              "Role": "dim_date.date_id.date_hierarchy"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "date_ids_have_date_hierarchy_ids"
+			        }
+			      ]
+			    },
+			    "fact_fuel_price_has_dim_date": {
+			      "Binding": {
+			        "ConceptualEntity": "FACT_FUEL_PRICE"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_fuel_price": {
+			          "Target": {
+			            "Entity": "fact_fuel_price"
+			          }
+			        },
+			        "dim_date": {
+			          "Target": {
+			            "Entity": "dim_date"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_fuel_price"
+			            },
+			            "Object": {
+			              "Role": "dim_date"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_fuel_prices_have_dim_dates"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_date"
+			            },
+			            "Object": {
+			              "Role": "fact_fuel_price"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_dates_have_fact_fuel_prices"
+			        }
+			      ]
+			    },
+			    "fact_fuel_price_has_dim_product": {
+			      "Binding": {
+			        "ConceptualEntity": "FACT_FUEL_PRICE"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_fuel_price": {
+			          "Target": {
+			            "Entity": "fact_fuel_price"
+			          }
+			        },
+			        "dim_product": {
+			          "Target": {
+			            "Entity": "dim_product"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_fuel_price"
+			            },
+			            "Object": {
+			              "Role": "dim_product"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_fuel_prices_have_dim_products"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_product"
+			            },
+			            "Object": {
+			              "Role": "fact_fuel_price"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_products_have_fact_fuel_prices"
+			        }
+			      ]
+			    },
+			    "fact_fuel_price_has_dim_station": {
+			      "Binding": {
+			        "ConceptualEntity": "FACT_FUEL_PRICE"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_fuel_price": {
+			          "Target": {
+			            "Entity": "fact_fuel_price"
+			          }
+			        },
+			        "dim_station": {
+			          "Target": {
+			            "Entity": "dim_station"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_fuel_price"
+			            },
+			            "Object": {
+			              "Role": "dim_station"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_fuel_prices_have_dim_stations"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_station"
+			            },
+			            "Object": {
+			              "Role": "fact_fuel_price"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_stations_have_fact_fuel_prices"
+			        }
+			      ]
+			    },
+			    "fact_fuel_price_has_precio_AdBlue": {
+			      "Binding": {
+			        "ConceptualEntity": "FACT_FUEL_PRICE"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_fuel_price": {
+			          "Target": {
+			            "Entity": "fact_fuel_price"
+			          }
+			        },
+			        "fact_fuel_price.precio_AdBlue": {
+			          "Target": {
+			            "Entity": "fact_fuel_price.precio_AdBlue"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_fuel_price"
+			            },
+			            "Object": {
+			              "Role": "fact_fuel_price.precio_AdBlue"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_fuel_prices_have_precio_AdBlue"
+			        }
+			      ]
+			    },
+			    "fact_fuel_price_has_variacion_la_ultima_semana": {
+			      "Binding": {
+			        "ConceptualEntity": "FACT_FUEL_PRICE"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_fuel_price": {
+			          "Target": {
+			            "Entity": "fact_fuel_price"
+			          }
+			        },
+			        "fact_fuel_price.variacion_la_ultima_semana": {
+			          "Target": {
+			            "Entity": "fact_fuel_price.variacion_la_ultima_semana"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_fuel_price"
+			            },
+			            "Object": {
+			              "Role": "fact_fuel_price.variacion_la_ultima_semana"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_fuel_prices_have_variacion_la_ultima_semana"
+			        }
+			      ]
+			    },
+			    "fact_fuel_price_has_variacion_las_ultimas_24h": {
+			      "Binding": {
+			        "ConceptualEntity": "FACT_FUEL_PRICE"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_fuel_price": {
+			          "Target": {
+			            "Entity": "fact_fuel_price"
+			          }
+			        },
+			        "fact_fuel_price.variacion_las_ultimas_24h": {
+			          "Target": {
+			            "Entity": "fact_fuel_price.variacion_las_ultimas_24h"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_fuel_price"
+			            },
+			            "Object": {
+			              "Role": "fact_fuel_price.variacion_las_ultimas_24h"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_fuel_prices_have_variacion_las_ultimas_24h"
+			        }
+			      ]
+			    },
+			    "fact_fuel_price_has_precio_actual": {
+			      "Binding": {
+			        "ConceptualEntity": "FACT_FUEL_PRICE"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_fuel_price": {
+			          "Target": {
+			            "Entity": "fact_fuel_price"
+			          }
+			        },
+			        "fact_fuel_price.precio_actual": {
+			          "Target": {
+			            "Entity": "fact_fuel_price.precio_actual"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_fuel_price"
+			            },
+			            "Object": {
+			              "Role": "fact_fuel_price.precio_actual"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_fuel_prices_have_precio_actual"
+			        }
+			      ]
+			    },
+			    "fact_fuel_price_has_daily_max_price": {
+			      "Binding": {
+			        "ConceptualEntity": "FACT_FUEL_PRICE"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_fuel_price": {
+			          "Target": {
+			            "Entity": "fact_fuel_price"
+			          }
+			        },
+			        "fact_fuel_price.daily_max_price": {
+			          "Target": {
+			            "Entity": "fact_fuel_price.daily_max_price"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_fuel_price"
+			            },
+			            "Object": {
+			              "Role": "fact_fuel_price.daily_max_price"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_fuel_prices_have_daily_max_prices"
+			        }
+			      ]
+			    },
+			    "fact_fuel_price_has_daily_min_price": {
+			      "Binding": {
+			        "ConceptualEntity": "FACT_FUEL_PRICE"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_fuel_price": {
+			          "Target": {
+			            "Entity": "fact_fuel_price"
+			          }
+			        },
+			        "fact_fuel_price.daily_min_price": {
+			          "Target": {
+			            "Entity": "fact_fuel_price.daily_min_price"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_fuel_price"
+			            },
+			            "Object": {
+			              "Role": "fact_fuel_price.daily_min_price"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_fuel_prices_have_daily_min_prices"
+			        }
+			      ]
+			    },
+			    "fact_fuel_price_has_daily_avg_price": {
+			      "Binding": {
+			        "ConceptualEntity": "FACT_FUEL_PRICE"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_fuel_price": {
+			          "Target": {
+			            "Entity": "fact_fuel_price"
+			          }
+			        },
+			        "fact_fuel_price.daily_avg_price": {
+			          "Target": {
+			            "Entity": "fact_fuel_price.daily_avg_price"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_fuel_price"
+			            },
+			            "Object": {
+			              "Role": "fact_fuel_price.daily_avg_price"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_fuel_prices_have_daily_avg_prices"
+			        }
+			      ]
+			    },
+			    "fact_fuel_price_has_price": {
+			      "Binding": {
+			        "ConceptualEntity": "FACT_FUEL_PRICE"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_fuel_price": {
+			          "Target": {
+			            "Entity": "fact_fuel_price"
+			          }
+			        },
+			        "fact_fuel_price.price": {
+			          "Target": {
+			            "Entity": "fact_fuel_price.price"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_fuel_price"
+			            },
+			            "Object": {
+			              "Role": "fact_fuel_price.price"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_fuel_prices_have_prices"
+			        },
+			        {
+			          "Adjective": {
+			            "Subject": {
+			              "Role": "fact_fuel_price"
+			            },
+			            "Adjectives": [
+			              {
+			                "expensive": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Antonyms": [
+			              {
+			                "cheap": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Measurement": {
+			              "Role": "fact_fuel_price.price"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "price_indicates_how_expensive_fact_fuel_prices_are"
+			        }
+			      ]
+			    },
+			    "fact_fuel_price_has_ingestion_ts": {
+			      "Binding": {
+			        "ConceptualEntity": "FACT_FUEL_PRICE"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_fuel_price": {
+			          "Target": {
+			            "Entity": "fact_fuel_price"
+			          }
+			        },
+			        "fact_fuel_price.ingestion_ts": {
+			          "Target": {
+			            "Entity": "fact_fuel_price.ingestion_ts"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_fuel_price"
+			            },
+			            "Object": {
+			              "Role": "fact_fuel_price.ingestion_ts"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_fuel_prices_have_ingestion_tses"
+			        }
+			      ]
+			    },
+			    "fact_fuel_price_has_date_id": {
+			      "Binding": {
+			        "ConceptualEntity": "FACT_FUEL_PRICE"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_fuel_price": {
+			          "Target": {
+			            "Entity": "fact_fuel_price"
+			          }
+			        },
+			        "fact_fuel_price.date_id": {
+			          "Target": {
+			            "Entity": "fact_fuel_price.date_id"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_fuel_price"
+			            },
+			            "Object": {
+			              "Role": "fact_fuel_price.date_id"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_fuel_prices_have_date_ids"
+			        }
+			      ]
+			    },
+			    "dim_station_has_longitud": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_STATION"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_station": {
+			          "Target": {
+			            "Entity": "dim_station"
+			          }
+			        },
+			        "dim_station.longitud": {
+			          "Target": {
+			            "Entity": "dim_station.longitud"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_station"
+			            },
+			            "Object": {
+			              "Role": "dim_station.longitud"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_stations_have_longituds"
+			        }
+			      ]
+			    },
+			    "dim_station_has_latitud": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_STATION"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_station": {
+			          "Target": {
+			            "Entity": "dim_station"
+			          }
+			        },
+			        "dim_station.latitud": {
+			          "Target": {
+			            "Entity": "dim_station.latitud"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_station"
+			            },
+			            "Object": {
+			              "Role": "dim_station.latitud"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_stations_have_latituds"
+			        }
+			      ]
+			    },
+			    "dim_station_has_idccaa": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_STATION"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_station": {
+			          "Target": {
+			            "Entity": "dim_station"
+			          }
+			        },
+			        "dim_station.idccaa": {
+			          "Target": {
+			            "Entity": "dim_station.idccaa"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_station"
+			            },
+			            "Object": {
+			              "Role": "dim_station.idccaa"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_stations_have_idccaas"
+			        }
+			      ]
+			    },
+			    "dim_station_has_provincia": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_STATION"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_station": {
+			          "Target": {
+			            "Entity": "dim_station"
+			          }
+			        },
+			        "dim_station.provincia": {
+			          "Target": {
+			            "Entity": "dim_station.provincia"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_station"
+			            },
+			            "Object": {
+			              "Role": "dim_station.provincia"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_stations_have_provincias"
+			        }
+			      ]
+			    },
+			    "dim_station_has_municipio": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_STATION"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_station": {
+			          "Target": {
+			            "Entity": "dim_station"
+			          }
+			        },
+			        "dim_station.municipio": {
+			          "Target": {
+			            "Entity": "dim_station.municipio"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_station"
+			            },
+			            "Object": {
+			              "Role": "dim_station.municipio"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_stations_have_municipios"
+			        }
+			      ]
+			    },
+			    "dim_station_has_cp": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_STATION"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_station": {
+			          "Target": {
+			            "Entity": "dim_station"
+			          }
+			        },
+			        "dim_station.cp": {
+			          "Target": {
+			            "Entity": "dim_station.cp"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_station"
+			            },
+			            "Object": {
+			              "Role": "dim_station.cp"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_stations_have_cps"
+			        }
+			      ]
+			    },
+			    "dim_station_has_direccion": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_STATION"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_station": {
+			          "Target": {
+			            "Entity": "dim_station"
+			          }
+			        },
+			        "dim_station.direccion": {
+			          "Target": {
+			            "Entity": "dim_station.direccion"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_station"
+			            },
+			            "Object": {
+			              "Role": "dim_station.direccion"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_stations_have_direccions"
+			        }
+			      ]
+			    },
+			    "dim_station_has_rotulo": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_STATION"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_station": {
+			          "Target": {
+			            "Entity": "dim_station"
+			          }
+			        },
+			        "dim_station.rotulo": {
+			          "Target": {
+			            "Entity": "dim_station.rotulo"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_station"
+			            },
+			            "Object": {
+			              "Role": "dim_station.rotulo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_stations_have_rotulos"
+			        }
+			      ]
+			    },
+			    "dim_station_has_ideess": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_STATION"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_station": {
+			          "Target": {
+			            "Entity": "dim_station"
+			          }
+			        },
+			        "dim_station.ideess": {
+			          "Target": {
+			            "Entity": "dim_station.ideess"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_station"
+			            },
+			            "Object": {
+			              "Role": "dim_station.ideess"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_stations_have_ideesses"
+			        }
+			      ]
+			    },
+			    "dim_product_has_average_price": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_PRODUCT"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_product": {
+			          "Target": {
+			            "Entity": "dim_product"
+			          }
+			        },
+			        "dim_product.average_price": {
+			          "Target": {
+			            "Entity": "dim_product.average_price"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_product"
+			            },
+			            "Object": {
+			              "Role": "dim_product.average_price"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_products_have_average_prices"
+			        }
+			      ]
+			    },
+			    "dim_product_has_product_name": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_PRODUCT"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_product": {
+			          "Target": {
+			            "Entity": "dim_product"
+			          }
+			        },
+			        "dim_product.product_name": {
+			          "Target": {
+			            "Entity": "dim_product.product_name"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_product"
+			            },
+			            "Object": {
+			              "Role": "dim_product.product_name"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_products_have_product_names"
+			        },
+			        {
+			          "Name": {
+			            "Subject": {
+			              "Role": "dim_product"
+			            },
+			            "Name": {
+			              "Role": "dim_product.product_name"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "product_names_are_names_IDs_of_dim_products"
+			        }
+			      ]
+			    },
+			    "dim_date_has_day_of_the_week": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_DATE"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_date": {
+			          "Target": {
+			            "Entity": "dim_date"
+			          }
+			        },
+			        "dim_date.day_of_the_week": {
+			          "Target": {
+			            "Entity": "dim_date.day_of_the_week"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_date"
+			            },
+			            "Object": {
+			              "Role": "dim_date.day_of_the_week"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_dates_have_day_of_the_week"
+			        }
+			      ]
+			    },
+			    "dim_date_has_month": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_DATE"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_date": {
+			          "Target": {
+			            "Entity": "dim_date"
+			          }
+			        },
+			        "dim_date.month": {
+			          "Target": {
+			            "Entity": "dim_date.month"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_date"
+			            },
+			            "Object": {
+			              "Role": "dim_date.month"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_dates_have_months"
+			        }
+			      ]
+			    },
+			    "dim_date_has_year": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_DATE"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_date": {
+			          "Target": {
+			            "Entity": "dim_date"
+			          }
+			        },
+			        "dim_date.year": {
+			          "Target": {
+			            "Entity": "dim_date.year"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_date"
+			            },
+			            "Object": {
+			              "Role": "dim_date.year"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_dates_have_years"
+			        }
+			      ]
+			    },
+			    "dim_date_has_date_id": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_DATE"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_date": {
+			          "Target": {
+			            "Entity": "dim_date"
+			          }
+			        },
+			        "dim_date.date_id": {
+			          "Target": {
+			            "Entity": "dim_date.date_id"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_date"
+			            },
+			            "Object": {
+			              "Role": "dim_date.date_id"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_dates_have_date_ids"
+			        }
+			      ]
+			    },
+			    "fact_fuel_price_ingestion_ts_date_hierarchy_has_fact_fuel_price_ingestion_ts_month": {
+			      "Binding": {
+			        "ConceptualEntity": "FACT_FUEL_PRICE"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_fuel_price.ingestion_ts.date_hierarchy": {
+			          "Target": {
+			            "Entity": "fact_fuel_price.ingestion_ts.date_hierarchy"
+			          }
+			        },
+			        "fact_fuel_price.ingestion_ts.month": {
+			          "Target": {
+			            "Entity": "fact_fuel_price.ingestion_ts.month"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_fuel_price.ingestion_ts.date_hierarchy"
+			            },
+			            "Object": {
+			              "Role": "fact_fuel_price.ingestion_ts.month"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "ingestion_ts_date_hierarchies_have_ingestion_ts_months"
+			        }
+			      ]
+			    },
+			    "fact_fuel_price_ingestion_ts_date_hierarchy_has_fact_fuel_price_ingestion_ts_day": {
+			      "Binding": {
+			        "ConceptualEntity": "FACT_FUEL_PRICE"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_fuel_price.ingestion_ts.date_hierarchy": {
+			          "Target": {
+			            "Entity": "fact_fuel_price.ingestion_ts.date_hierarchy"
+			          }
+			        },
+			        "fact_fuel_price.ingestion_ts.day": {
+			          "Target": {
+			            "Entity": "fact_fuel_price.ingestion_ts.day"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_fuel_price.ingestion_ts.date_hierarchy"
+			            },
+			            "Object": {
+			              "Role": "fact_fuel_price.ingestion_ts.day"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "ingestion_ts_date_hierarchies_have_ingestion_ts_days"
+			        }
+			      ]
+			    }
+			  },
+			  "Agents": {
+			    "Internal": {
+			      "Version": "1.1.0"
+			    }
+			  }
+			}
+		contentType: json
+

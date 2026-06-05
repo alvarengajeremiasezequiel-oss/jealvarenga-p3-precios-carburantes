@@ -4,10 +4,10 @@
   "position": {
     "x": 1040,
     "y": 0,
-    "z": 2001,
+    "z": 3000,
     "height": 220,
     "width": 240,
-    "tabOrder": 2001
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "card",
@@ -56,7 +56,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "a0c660209cd74409bba4",
+        "name": "1881e31ccc230bd4bc6e",
         "field": {
           "Measure": {
             "Expression": {

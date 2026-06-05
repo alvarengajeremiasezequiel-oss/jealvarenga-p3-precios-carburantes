@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "1143e33240ad9cb1609a",
   "position": {
-    "x": 568.33333333333337,
-    "y": 440,
-    "z": 2004,
-    "height": 280,
-    "width": 355,
-    "tabOrder": 2004
+    "x": 567.769028871391,
+    "y": 440.1049868766404,
+    "z": 6000,
+    "height": 280.52493438320209,
+    "width": 357.79527559055117,
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "clusteredBarChart",
@@ -27,8 +27,9 @@
                 }
               },
               "queryRef": "DIM_STATION.IDEESS",
-              "nativeQueryRef": "IDEESS",
-              "active": true
+              "nativeQueryRef": "Estación",
+              "active": true,
+              "displayName": "Estación"
             }
           ]
         },
@@ -51,7 +52,8 @@
                 }
               },
               "queryRef": "Sum(FACT_FUEL_PRICE.PRICE)",
-              "nativeQueryRef": "Average of PRICE"
+              "nativeQueryRef": "Precio",
+              "displayName": "Precio"
             }
           ]
         }
@@ -191,7 +193,7 @@
         }
       },
       {
-        "name": "23b56144b976a4a7db46",
+        "name": "9d819632ac8600178c09",
         "field": {
           "Aggregation": {
             "Expression": {

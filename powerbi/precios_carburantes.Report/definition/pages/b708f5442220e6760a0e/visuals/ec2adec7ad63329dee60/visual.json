@@ -233,7 +233,8 @@
         "howCreated": "User"
       },
       {
-        "name": "d811b68098d90d98b621",
+        "name": "a8cb657ed80560a358e4",
+        "ordinal": 3,
         "field": {
           "Column": {
             "Expression": {
@@ -247,7 +248,28 @@
         "type": "Categorical"
       },
       {
-        "name": "b9ba6b207a4ca49d15a8",
+        "name": "94153e866c709d31b183",
+        "ordinal": 4,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "DIM_STATION"
+                  }
+                },
+                "Property": "LATITUD"
+              }
+            },
+            "Function": 1
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "7949bf9f8d400c85b920",
+        "ordinal": 5,
         "field": {
           "Aggregation": {
             "Expression": {
@@ -266,23 +288,20 @@
         "type": "Advanced"
       },
       {
-        "name": "8ebf4682418ea50b0756",
+        "name": "38ff53a70e4c545e06be",
+        "ordinal": 6,
         "field": {
-          "Aggregation": {
+          "Column": {
             "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "DIM_STATION"
-                  }
-                },
-                "Property": "LATITUD"
+              "SourceRef": {
+                "Entity": "DIM_STATION"
               }
             },
-            "Function": 1
+            "Property": "DIRECCION"
           }
         },
-        "type": "Advanced"
+        "type": "Categorical",
+        "howCreated": "User"
       }
     ],
     "filterSortOrder": "Custom"

@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "DIM_PRODUCT.PRODUCT_NAME",
-              "nativeQueryRef": "PRODUCT_NAME"
+              "nativeQueryRef": "Producto",
+              "displayName": "Producto"
             },
             {
               "field": {
@@ -55,18 +56,13 @@
         "sort": [
           {
             "field": {
-              "Aggregation": {
+              "Column": {
                 "Expression": {
-                  "Column": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "FACT_FUEL_PRICE"
-                      }
-                    },
-                    "Property": "PRICE"
+                  "SourceRef": {
+                    "Entity": "DIM_PRODUCT"
                   }
                 },
-                "Function": 8
+                "Property": "PRODUCT_NAME"
               }
             },
             "direction": "Descending"
@@ -111,7 +107,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "667602e752cb501c901c",
+        "name": "9fc1ecb299028a25d015",
         "field": {
           "Column": {
             "Expression": {
@@ -125,7 +121,7 @@
         "type": "Categorical"
       },
       {
-        "name": "6721cf302535e15d154d",
+        "name": "4e907b92bbe2834062ca",
         "field": {
           "Aggregation": {
             "Expression": {

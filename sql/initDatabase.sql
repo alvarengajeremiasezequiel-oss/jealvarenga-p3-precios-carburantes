@@ -63,10 +63,10 @@ CREATE TABLE IF NOT EXISTS GOLD.fact_fuel_price (
     ingestion_ts  TIMESTAMP_NTZ,
     ideess        VARCHAR(20),
     product       VARCHAR(50),
-    price         NUMBER(12,2),
-    daily_avg_price     NUMBER(12,2),
-    daily_min_price     NUMBER(12,2),
-    daily_max_price     NUMBER(12,2)
+    price         NUMBER(12,3),
+    daily_avg_price     NUMBER(12,3),
+    daily_min_price     NUMBER(12,3),
+    daily_max_price     NUMBER(12,3)
 )
 COMMENT = 'Histórico de precios de Gasoleo A, Gasolina 95 E5 y AdBlue por estación con agregación diaria';
 

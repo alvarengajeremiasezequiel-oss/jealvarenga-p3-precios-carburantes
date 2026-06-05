@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "71610fff59db069647e7",
   "position": {
-    "x": 10,
+    "x": 10.078740157480315,
     "y": 0,
     "z": 0,
-    "height": 440,
-    "width": 558.33333333333337,
+    "height": 440.1049868766404,
+    "width": 557.69028871391072,
     "tabOrder": 0
   },
   "visual": {
@@ -17,107 +17,19 @@
           "projections": [
             {
               "field": {
-                "HierarchyLevel": {
+                "Column": {
                   "Expression": {
-                    "Hierarchy": {
-                      "Expression": {
-                        "PropertyVariationSource": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Entity": "FACT_FUEL_PRICE"
-                            }
-                          },
-                          "Name": "Variation",
-                          "Property": "INGESTION_TS"
-                        }
-                      },
-                      "Hierarchy": "Date Hierarchy"
+                    "SourceRef": {
+                      "Entity": "FACT_FUEL_PRICE"
                     }
                   },
-                  "Level": "Year"
+                  "Property": "INGESTION_TS"
                 }
               },
-              "queryRef": "FACT_FUEL_PRICE.INGESTION_TS.Variation.Date Hierarchy.Year",
-              "nativeQueryRef": "INGESTION_TS Year",
-              "active": true
-            },
-            {
-              "field": {
-                "HierarchyLevel": {
-                  "Expression": {
-                    "Hierarchy": {
-                      "Expression": {
-                        "PropertyVariationSource": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Entity": "FACT_FUEL_PRICE"
-                            }
-                          },
-                          "Name": "Variation",
-                          "Property": "INGESTION_TS"
-                        }
-                      },
-                      "Hierarchy": "Date Hierarchy"
-                    }
-                  },
-                  "Level": "Quarter"
-                }
-              },
-              "queryRef": "FACT_FUEL_PRICE.INGESTION_TS.Variation.Date Hierarchy.Quarter",
-              "nativeQueryRef": "INGESTION_TS Quarter",
-              "active": false
-            },
-            {
-              "field": {
-                "HierarchyLevel": {
-                  "Expression": {
-                    "Hierarchy": {
-                      "Expression": {
-                        "PropertyVariationSource": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Entity": "FACT_FUEL_PRICE"
-                            }
-                          },
-                          "Name": "Variation",
-                          "Property": "INGESTION_TS"
-                        }
-                      },
-                      "Hierarchy": "Date Hierarchy"
-                    }
-                  },
-                  "Level": "Month"
-                }
-              },
-              "queryRef": "FACT_FUEL_PRICE.INGESTION_TS.Variation.Date Hierarchy.Month",
-              "nativeQueryRef": "INGESTION_TS Month",
-              "active": false
-            },
-            {
-              "field": {
-                "HierarchyLevel": {
-                  "Expression": {
-                    "Hierarchy": {
-                      "Expression": {
-                        "PropertyVariationSource": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Entity": "FACT_FUEL_PRICE"
-                            }
-                          },
-                          "Name": "Variation",
-                          "Property": "INGESTION_TS"
-                        }
-                      },
-                      "Hierarchy": "Date Hierarchy"
-                    }
-                  },
-                  "Level": "Day"
-                }
-              },
-              "queryRef": "FACT_FUEL_PRICE.INGESTION_TS.Variation.Date Hierarchy.Day",
-              "nativeQueryRef": "INGESTION_TS Day",
-              "active": false
+              "queryRef": "FACT_FUEL_PRICE.INGESTION_TS",
+              "nativeQueryRef": "Tiempo",
+              "active": true,
+              "displayName": "Tiempo"
             }
           ]
         },
@@ -140,118 +52,66 @@
                 }
               },
               "queryRef": "Sum(FACT_FUEL_PRICE.PRICE)",
-              "nativeQueryRef": "Average of PRICE"
+              "nativeQueryRef": "Precio",
+              "displayName": "Precio"
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "FACT_FUEL_PRICE"
+                  }
+                },
+                "Property": "INGESTION_TS"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": true
       }
+    },
+    "objects": {
+      "categoryAxis": [
+        {
+          "properties": {
+            "axisType": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Scalar'"
+                }
+              }
+            }
+          }
+        }
+      ]
     },
     "drillFilterOtherVisuals": true
   },
   "filterConfig": {
     "filters": [
       {
-        "name": "5f2d967547bcc1716980",
+        "name": "96a480633289a94de39e",
         "field": {
-          "HierarchyLevel": {
+          "Column": {
             "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "PropertyVariationSource": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "FACT_FUEL_PRICE"
-                      }
-                    },
-                    "Name": "Variation",
-                    "Property": "INGESTION_TS"
-                  }
-                },
-                "Hierarchy": "Date Hierarchy"
+              "SourceRef": {
+                "Entity": "FACT_FUEL_PRICE"
               }
             },
-            "Level": "Year"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "3a107e60479a64d4b4ad",
-        "field": {
-          "HierarchyLevel": {
-            "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "PropertyVariationSource": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "FACT_FUEL_PRICE"
-                      }
-                    },
-                    "Name": "Variation",
-                    "Property": "INGESTION_TS"
-                  }
-                },
-                "Hierarchy": "Date Hierarchy"
-              }
-            },
-            "Level": "Quarter"
+            "Property": "INGESTION_TS"
           }
         },
         "type": "Categorical"
       },
       {
-        "name": "412916ea00be002e9a88",
-        "field": {
-          "HierarchyLevel": {
-            "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "PropertyVariationSource": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "FACT_FUEL_PRICE"
-                      }
-                    },
-                    "Name": "Variation",
-                    "Property": "INGESTION_TS"
-                  }
-                },
-                "Hierarchy": "Date Hierarchy"
-              }
-            },
-            "Level": "Month"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "83a81ffd758e7d0bee36",
-        "field": {
-          "HierarchyLevel": {
-            "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "PropertyVariationSource": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "FACT_FUEL_PRICE"
-                      }
-                    },
-                    "Name": "Variation",
-                    "Property": "INGESTION_TS"
-                  }
-                },
-                "Hierarchy": "Date Hierarchy"
-              }
-            },
-            "Level": "Day"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "dce9fed2b82094cde250",
+        "name": "6ecf5748a92655ec4d0e",
         "field": {
           "Aggregation": {
             "Expression": {

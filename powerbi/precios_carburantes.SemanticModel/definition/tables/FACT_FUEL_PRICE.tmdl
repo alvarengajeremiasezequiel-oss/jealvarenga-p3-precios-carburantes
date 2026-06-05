@@ -18,9 +18,8 @@ table FACT_FUEL_PRICE
 			VAR LatestTS = MAX(FACT_FUEL_PRICE[INGESTION_TS])
 			RETURN
 			    CALCULATE(
-			        STDEV.P(FACT_FUEL_PRICE[PRICE]),
-			        FACT_FUEL_PRICE[INGESTION_TS] >= LatestTS - 1
-			    )
+			    AVERAGE(FACT_FUEL_PRICE[DAILY_MAX_PRICE]) - AVERAGE(FACT_FUEL_PRICE[DAILY_MIN_PRICE]),
+			    FACT_FUEL_PRICE[INGESTION_TS] = LatestTS)
 		lineageTag: f4b3eaaa-5b0a-4005-9f01-c7c79cf3df82
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
@@ -34,6 +33,16 @@ table FACT_FUEL_PRICE
 			        FACT_FUEL_PRICE[INGESTION_TS] >= LatestTS - 7
 			    )
 		lineageTag: 70fc4838-6473-4a80-b5a8-87f89f865f81
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Precio AdBlue' =
+			
+			CALCULATE(
+			    SELECTEDVALUE(FACT_FUEL_PRICE[PRICE]),
+			    FACT_FUEL_PRICE[PRODUCT] = "AdBlue"
+			)
+		lineageTag: 7e9425fd-ede2-4c65-8df6-0c267dda1682
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
@@ -85,6 +94,36 @@ table FACT_FUEL_PRICE
 		lineageTag: 7536a8eb-11d2-419c-8c62-d926a4325bf9
 		summarizeBy: sum
 		sourceColumn: PRICE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DAILY_AVG_PRICE
+		dataType: double
+		lineageTag: e8a95062-0da4-4d5b-a54e-0027ddf50cae
+		summarizeBy: sum
+		sourceColumn: DAILY_AVG_PRICE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DAILY_MIN_PRICE
+		dataType: double
+		lineageTag: 2ee1facb-7433-43ec-abb7-ab9bc4eeb4e0
+		summarizeBy: sum
+		sourceColumn: DAILY_MIN_PRICE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DAILY_MAX_PRICE
+		dataType: double
+		lineageTag: 3bf83659-9295-46ba-8b7e-19706edd2f20
+		summarizeBy: sum
+		sourceColumn: DAILY_MAX_PRICE
 
 		annotation SummarizationSetBy = Automatic
 

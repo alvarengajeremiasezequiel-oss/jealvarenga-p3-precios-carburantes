@@ -13,36 +13,41 @@ table FACT_FUEL_PRICE
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Variacion las ultimas 24h' =
+	measure 'Variacion las ultimas 24h' = ```
 			
-			VAR LatestTS = MAX(FACT_FUEL_PRICE[INGESTION_TS])
-			RETURN
-			    CALCULATE(
-			    AVERAGE(FACT_FUEL_PRICE[DAILY_MAX_PRICE]) - AVERAGE(FACT_FUEL_PRICE[DAILY_MIN_PRICE]),
-			    FACT_FUEL_PRICE[INGESTION_TS] = LatestTS)
+			    VAR LatestTS = MAX(FACT_FUEL_PRICE[INGESTION_TS])
+			
+			    VAR CurrentAvg =
+			        CALCULATE(AVERAGE(FACT_FUEL_PRICE[PRICE]),
+			            FACT_FUEL_PRICE[INGESTION_TS] = LatestTS)
+			    
+			    VAR PreviousAvg =
+			        CALCULATE(AVERAGE(FACT_FUEL_PRICE[PRICE]),
+			            FACT_FUEL_PRICE[INGESTION_TS] >= LatestTS - 1
+			                && FACT_FUEL_PRICE[INGESTION_TS] < LatestTS)
+			    
+			    RETURN CurrentAvg - PreviousAvg
+			```
 		lineageTag: f4b3eaaa-5b0a-4005-9f01-c7c79cf3df82
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Variacion la ultima semana' =
+	measure 'Variacion la ultima semana' = ```
 			
-			VAR LatestTS = MAX(FACT_FUEL_PRICE[INGESTION_TS])
-			RETURN
-			    CALCULATE(
-			        STDEV.P(FACT_FUEL_PRICE[PRICE]),
-			        FACT_FUEL_PRICE[INGESTION_TS] >= LatestTS - 7
-			    )
+			    VAR LatestTS = MAX(FACT_FUEL_PRICE[INGESTION_TS])
+			
+			    VAR CurrentAvg =
+			        CALCULATE(AVERAGE(FACT_FUEL_PRICE[PRICE]),
+			            FACT_FUEL_PRICE[INGESTION_TS] = LatestTS)
+			    
+			    VAR PreviousAvg =
+			        CALCULATE(AVERAGE(FACT_FUEL_PRICE[PRICE]),
+			            FACT_FUEL_PRICE[INGESTION_TS] >= LatestTS - 7
+			                && FACT_FUEL_PRICE[INGESTION_TS] < LatestTS)
+			    
+			    RETURN CurrentAvg - PreviousAvg
+			```
 		lineageTag: 70fc4838-6473-4a80-b5a8-87f89f865f81
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure 'Precio AdBlue' =
-			
-			CALCULATE(
-			    SELECTEDVALUE(FACT_FUEL_PRICE[PRICE]),
-			    FACT_FUEL_PRICE[PRODUCT] = "AdBlue"
-			)
-		lineageTag: 7e9425fd-ede2-4c65-8df6-0c267dda1682
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 

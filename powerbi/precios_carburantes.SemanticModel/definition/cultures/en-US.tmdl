@@ -1905,16 +1905,6 @@ cultureInfo en-US
 			          "ideess": {
 			            "State": "Generated"
 			          }
-			        },
-			        {
-			          "Estación": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
 			        }
 			      ]
 			    },
@@ -2551,22 +2541,6 @@ cultureInfo en-US
 			          }
 			        }
 			      ]
-			    },
-			    "fact_fuel_price.precio_AdBlue": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "FACT_FUEL_PRICE",
-			          "ConceptualProperty": "Precio AdBlue"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "precio AdBlue": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
 			    }
 			  },
 			  "Relationships": {
@@ -2969,39 +2943,6 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_stations_have_fact_fuel_prices"
-			        }
-			      ]
-			    },
-			    "fact_fuel_price_has_precio_AdBlue": {
-			      "Binding": {
-			        "ConceptualEntity": "FACT_FUEL_PRICE"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_fuel_price": {
-			          "Target": {
-			            "Entity": "fact_fuel_price"
-			          }
-			        },
-			        "fact_fuel_price.precio_AdBlue": {
-			          "Target": {
-			            "Entity": "fact_fuel_price.precio_AdBlue"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_fuel_price"
-			            },
-			            "Object": {
-			              "Role": "fact_fuel_price.precio_AdBlue"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_fuel_prices_have_precio_AdBlue"
 			        }
 			      ]
 			    },

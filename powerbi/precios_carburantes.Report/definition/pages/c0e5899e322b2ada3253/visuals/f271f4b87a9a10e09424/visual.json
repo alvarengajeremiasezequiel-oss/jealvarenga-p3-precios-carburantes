@@ -1,0 +1,174 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "f271f4b87a9a10e09424",
+  "position": {
+    "x": 873.490813648294,
+    "y": 0,
+    "z": 2000,
+    "height": 359.47506561679791,
+    "width": 406.50918635170603,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FACT_FUEL_PRICE"
+                    }
+                  },
+                  "Property": "INGESTION_TS"
+                }
+              },
+              "queryRef": "FACT_FUEL_PRICE.INGESTION_TS",
+              "nativeQueryRef": "Tiempo",
+              "active": true,
+              "displayName": "Tiempo"
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_PRODUCT"
+                    }
+                  },
+                  "Property": "PRODUCT_NAME"
+                }
+              },
+              "queryRef": "DIM_PRODUCT.PRODUCT_NAME",
+              "nativeQueryRef": "Producto",
+              "displayName": "Producto"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FACT_FUEL_PRICE"
+                        }
+                      },
+                      "Property": "PRICE"
+                    }
+                  },
+                  "Function": 1
+                }
+              },
+              "queryRef": "Sum(FACT_FUEL_PRICE.PRICE)",
+              "nativeQueryRef": "Precio",
+              "displayName": "Precio",
+              "format": "#,0.000 \"€\";-#,0.000 \"€\";#,0.000 \"€\""
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "FACT_FUEL_PRICE"
+                  }
+                },
+                "Property": "INGESTION_TS"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Evolución de precio'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "c3f16d055964c2506e68",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_PRODUCT"
+              }
+            },
+            "Property": "PRODUCT_NAME"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "DIM_PRODUCT",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "d"
+                          }
+                        },
+                        "Property": "PRODUCT_NAME"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Gasolina 95 E5'"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

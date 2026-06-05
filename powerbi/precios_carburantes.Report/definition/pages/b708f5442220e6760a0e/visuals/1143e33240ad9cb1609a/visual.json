@@ -33,6 +33,50 @@
             }
           ]
         },
+        "Tooltips": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_STATION"
+                        }
+                      },
+                      "Property": "PROVINCIA"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(DIM_STATION.PROVINCIA)",
+              "nativeQueryRef": "Provincia",
+              "displayName": "Provincia"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_STATION"
+                        }
+                      },
+                      "Property": "MUNICIPIO"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(DIM_STATION.MUNICIPIO)",
+              "nativeQueryRef": "Municipio",
+              "displayName": "Municipio"
+            }
+          ]
+        },
         "Y": {
           "projections": [
             {
@@ -81,6 +125,21 @@
         ],
         "isDefaultSort": true
       }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'10 estaciones más caras'"
+                }
+              }
+            }
+          }
+        }
+      ]
     },
     "drillFilterOtherVisuals": true
   },
@@ -191,25 +250,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "9d819632ac8600178c09",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "FACT_FUEL_PRICE"
-                  }
-                },
-                "Property": "PRICE"
-              }
-            },
-            "Function": 1
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

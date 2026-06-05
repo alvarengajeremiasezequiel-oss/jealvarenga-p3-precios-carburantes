@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "FACT_FUEL_PRICE.Precio actual",
-              "nativeQueryRef": "Precio actual"
+              "nativeQueryRef": "Precio actual",
+              "format": "#,0.000 \"€\";-#,0.000 \"€\";#,0.000 \"€\""
             }
           ]
         }
@@ -56,7 +57,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "1881e31ccc230bd4bc6e",
+        "name": "567828b142697908c9d0",
         "field": {
           "Measure": {
             "Expression": {

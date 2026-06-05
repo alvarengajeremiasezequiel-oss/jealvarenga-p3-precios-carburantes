@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "6aa0c1b14c25ab0c9439",
   "position": {
-    "x": 925,
-    "y": 440,
+    "x": 925.56430446194224,
+    "y": 440.1049868766404,
     "z": 7000,
-    "height": 280,
-    "width": 355,
+    "height": 280.52493438320209,
+    "width": 354.43569553805776,
     "tabOrder": 7000
   },
   "visual": {
@@ -20,16 +20,60 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "FACT_FUEL_PRICE"
+                      "Entity": "DIM_STATION"
                     }
                   },
                   "Property": "IDEESS"
                 }
               },
-              "queryRef": "FACT_FUEL_PRICE.IDEESS",
+              "queryRef": "DIM_STATION.IDEESS",
               "nativeQueryRef": "Estación",
               "active": true,
               "displayName": "Estación"
+            }
+          ]
+        },
+        "Tooltips": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_STATION"
+                        }
+                      },
+                      "Property": "PROVINCIA"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(DIM_STATION.PROVINCIA)",
+              "nativeQueryRef": "Provincia",
+              "displayName": "Provincia"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_STATION"
+                        }
+                      },
+                      "Property": "MUNICIPIO"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(DIM_STATION.MUNICIPIO)",
+              "nativeQueryRef": "Municipio",
+              "displayName": "Municipio"
             }
           ]
         },
@@ -53,7 +97,8 @@
               },
               "queryRef": "Sum(FACT_FUEL_PRICE.PRICE)",
               "nativeQueryRef": "Precio",
-              "displayName": "Precio"
+              "displayName": "Precio",
+              "format": "#,0.000 \"€\";-#,0.000 \"€\";#,0.000 \"€\""
             }
           ]
         }
@@ -76,11 +121,41 @@
                 "Function": 1
               }
             },
-            "direction": "Descending"
+            "direction": "Ascending"
           }
         ],
         "isDefaultSort": true
       }
+    },
+    "objects": {
+      "categoryAxis": [
+        {
+          "properties": {
+            "switchAxisPosition": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'10 estaciones más baratas'"
+                }
+              }
+            }
+          }
+        }
+      ]
     },
     "drillFilterOtherVisuals": true
   },
@@ -185,26 +260,8 @@
               }
             }
           ]
-        }
-      },
-      {
-        "name": "6a19aaccd6ba7d4507c0",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "FACT_FUEL_PRICE"
-                  }
-                },
-                "Property": "PRICE"
-              }
-            },
-            "Function": 1
-          }
         },
-        "type": "Advanced"
+        "howCreated": "User"
       }
     ],
     "filterSortOrder": "Ascending"

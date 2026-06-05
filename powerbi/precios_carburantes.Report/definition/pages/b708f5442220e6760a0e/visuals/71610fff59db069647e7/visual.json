@@ -87,6 +87,28 @@
                   "Value": "'Scalar'"
                 }
               }
+            },
+            "invertAxis": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Evolución del precio'"
+                }
+              }
             }
           }
         }
@@ -97,7 +119,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "96a480633289a94de39e",
+        "name": "284316f0e520953ba14e",
         "field": {
           "Column": {
             "Expression": {
@@ -111,7 +133,7 @@
         "type": "Categorical"
       },
       {
-        "name": "6ecf5748a92655ec4d0e",
+        "name": "bfb9e66a3d1057536491",
         "field": {
           "Aggregation": {
             "Expression": {

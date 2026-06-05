@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "FACT_FUEL_PRICE.Variacion la ultima semana",
-              "nativeQueryRef": "Variacion la ultima semana"
+              "nativeQueryRef": "Variacion la ultima semana",
+              "format": "#,0.000 \"€\";-#,0.000 \"€\";#,0.000 \"€\""
             }
           ]
         }
@@ -52,23 +53,5 @@
       }
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "6f1615efc60647871977",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "FACT_FUEL_PRICE"
-              }
-            },
-            "Property": "Variacion la ultima semana"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

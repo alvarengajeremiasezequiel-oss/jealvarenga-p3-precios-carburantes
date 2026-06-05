@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "FACT_FUEL_PRICE.variacion las ultimas 24h",
-              "nativeQueryRef": "Variacion las ultimas 24h"
+              "nativeQueryRef": "Variacion las ultimas 24h",
+              "format": "#,0.000 \"€\";-#,0.000 \"€\";#,0.000 \"€\""
             }
           ]
         }
@@ -52,23 +53,5 @@
       }
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "5d14d60a6b2d11dc70bb",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "FACT_FUEL_PRICE"
-              }
-            },
-            "Property": "Variacion las ultimas 24h"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

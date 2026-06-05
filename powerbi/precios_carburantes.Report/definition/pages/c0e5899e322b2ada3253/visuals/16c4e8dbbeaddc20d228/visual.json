@@ -1,0 +1,168 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "16c4e8dbbeaddc20d228",
+  "position": {
+    "x": 0,
+    "y": 369.5538057742782,
+    "z": 3000,
+    "height": 351.07611548556429,
+    "width": 406.50918635170603,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_PRODUCT"
+                    }
+                  },
+                  "Property": "PRODUCT_NAME"
+                }
+              },
+              "queryRef": "DIM_PRODUCT.PRODUCT_NAME",
+              "nativeQueryRef": "Producto",
+              "active": true,
+              "displayName": "Producto"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FACT_FUEL_PRICE"
+                        }
+                      },
+                      "Property": "PRICE"
+                    }
+                  },
+                  "Function": 1
+                }
+              },
+              "queryRef": "Sum(FACT_FUEL_PRICE.PRICE)",
+              "nativeQueryRef": "Average of PRICE",
+              "displayName": "Precio",
+              "format": "#,0.00 \"€\";-#,0.00 \"€\";#,0.00 \"€\""
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "FACT_FUEL_PRICE"
+                      }
+                    },
+                    "Property": "PRICE"
+                  }
+                },
+                "Function": 1
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "categoryAxis": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "valueAxis": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Precios medios por producto'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "59288cde9e79ca4002d6",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_PRODUCT"
+              }
+            },
+            "Property": "PRODUCT_NAME"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "39c071c5bb3e0a9d6341",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "FACT_FUEL_PRICE"
+                  }
+                },
+                "Property": "PRICE"
+              }
+            },
+            "Function": 1
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

@@ -43,11 +43,76 @@
                       "Property": "PRICE"
                     }
                   },
-                  "Function": 8
+                  "Function": 4
+                }
+              },
+              "queryRef": "Sum(FACT_FUEL_PRICE.PRICE)2",
+              "nativeQueryRef": "Máximo",
+              "displayName": "Máximo",
+              "format": "#,0.000 \"€\";-#,0.000 \"€\";#,0.000 \"€\""
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FACT_FUEL_PRICE"
+                        }
+                      },
+                      "Property": "PRICE"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(FACT_FUEL_PRICE.PRICE)",
+              "nativeQueryRef": "Mínimo",
+              "displayName": "Mínimo",
+              "format": "#,0.000 \"€\";-#,0.000 \"€\";#,0.000 \"€\""
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FACT_FUEL_PRICE"
+                        }
+                      },
+                      "Property": "PRICE"
+                    }
+                  },
+                  "Function": 1
                 }
               },
               "queryRef": "Sum(FACT_FUEL_PRICE.PRICE)",
-              "nativeQueryRef": "Variance of PRICE"
+              "nativeQueryRef": "Media",
+              "displayName": "Media",
+              "format": "#,0.000 \"€\";-#,0.000 \"€\";#,0.000 \"€\""
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FACT_FUEL_PRICE"
+                        }
+                      },
+                      "Property": "PRICE"
+                    }
+                  },
+                  "Function": 7
+                }
+              },
+              "queryRef": "Sum(FACT_FUEL_PRICE.PRICE)1",
+              "nativeQueryRef": "Desviación típica",
+              "displayName": "Desviación típica",
+              "format": "#,0.000 \"€\";-#,0.000 \"€\";#,0.000 \"€\""
             }
           ]
         }
@@ -65,7 +130,7 @@
                 "Property": "PRODUCT_NAME"
               }
             },
-            "direction": "Descending"
+            "direction": "Ascending"
           }
         ]
       }
@@ -77,7 +142,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "369.78322353304975D"
+                  "Value": "112.6233195377477D"
                 }
               }
             }
@@ -91,7 +156,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "175.81595934285744D"
+                  "Value": "95.00950625861574D"
                 }
               }
             }
@@ -99,46 +164,93 @@
           "selector": {
             "metadata": "Sum(FACT_FUEL_PRICE.PRICE)"
           }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "152.0100424009045D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(FACT_FUEL_PRICE.PRICE)1"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "93.27560146356262D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(FACT_FUEL_PRICE.PRICE)2"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "104.03413765502603D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(FACT_FUEL_PRICE.PRICE)"
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnFormatting": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DIM_PRODUCT.PRODUCT_NAME"
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "13D"
+                }
+              }
+            }
+          }
         }
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "9fc1ecb299028a25d015",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DIM_PRODUCT"
-              }
-            },
-            "Property": "PRODUCT_NAME"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "4e907b92bbe2834062ca",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "FACT_FUEL_PRICE"
-                  }
-                },
-                "Property": "PRICE"
-              }
-            },
-            "Function": 8
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

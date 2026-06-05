@@ -1,0 +1,222 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "2962cd3c55abaa3860da",
+  "position": {
+    "x": 0,
+    "y": 0,
+    "z": 0,
+    "height": 359.47506561679791,
+    "width": 406.50918635170603,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FACT_FUEL_PRICE"
+                    }
+                  },
+                  "Property": "INGESTION_TS"
+                }
+              },
+              "queryRef": "FACT_FUEL_PRICE.INGESTION_TS",
+              "nativeQueryRef": "Tiempo",
+              "active": true,
+              "displayName": "Tiempo"
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_PRODUCT"
+                    }
+                  },
+                  "Property": "PRODUCT_NAME"
+                }
+              },
+              "queryRef": "DIM_PRODUCT.PRODUCT_NAME",
+              "nativeQueryRef": "Producto",
+              "displayName": "Producto"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FACT_FUEL_PRICE"
+                        }
+                      },
+                      "Property": "PRICE"
+                    }
+                  },
+                  "Function": 1
+                }
+              },
+              "queryRef": "Sum(FACT_FUEL_PRICE.PRICE)",
+              "nativeQueryRef": "Precio",
+              "displayName": "Precio",
+              "format": "#,0.000 \"€\";-#,0.000 \"€\";#,0.000 \"€\""
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "FACT_FUEL_PRICE"
+                  }
+                },
+                "Property": "INGESTION_TS"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "valueAxis": [
+        {
+          "properties": {
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "3L"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Evolución de precio'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "c3f16d055964c2506e68",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_PRODUCT"
+              }
+            },
+            "Property": "PRODUCT_NAME"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "DIM_PRODUCT",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "d"
+                          }
+                        },
+                        "Property": "PRODUCT_NAME"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'AdBlue'"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "9f0a64cf0a99e09ad221",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FACT_FUEL_PRICE"
+              }
+            },
+            "Property": "INGESTION_TS"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "f33119d2450b65e13580",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "FACT_FUEL_PRICE"
+                  }
+                },
+                "Property": "PRICE"
+              }
+            },
+            "Function": 1
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

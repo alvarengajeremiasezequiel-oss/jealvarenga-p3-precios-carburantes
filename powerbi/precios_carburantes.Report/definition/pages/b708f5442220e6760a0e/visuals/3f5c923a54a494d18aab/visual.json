@@ -53,23 +53,5 @@
       }
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "567828b142697908c9d0",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "FACT_FUEL_PRICE"
-              }
-            },
-            "Property": "Precio actual"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

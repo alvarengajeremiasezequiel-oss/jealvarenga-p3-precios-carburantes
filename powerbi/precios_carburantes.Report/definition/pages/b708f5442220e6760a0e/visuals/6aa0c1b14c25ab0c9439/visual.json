@@ -262,6 +262,77 @@
           ]
         },
         "howCreated": "User"
+      },
+      {
+        "name": "f7f74789818244ad1785",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_STATION"
+              }
+            },
+            "Property": "IDEESS"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "33dd91857060133b80d4",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "DIM_STATION"
+                  }
+                },
+                "Property": "PROVINCIA"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "6e4b56c4907082013015",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "DIM_STATION"
+                  }
+                },
+                "Property": "MUNICIPIO"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "a37954964c03137a5b07",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "FACT_FUEL_PRICE"
+                  }
+                },
+                "Property": "PRICE"
+              }
+            },
+            "Function": 1
+          }
+        },
+        "type": "Advanced"
       }
     ],
     "filterSortOrder": "Ascending"

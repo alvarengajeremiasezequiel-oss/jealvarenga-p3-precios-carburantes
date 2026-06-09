@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "860bd3b34d7057246e44",
+  "name": "72de2ce37e30a0a2567b",
   "position": {
     "x": 1040,
     "y": 220,
-    "z": 4000,
+    "z": 8000,
     "height": 110,
-    "width": 240,
-    "tabOrder": 4000
+    "width": 240.00000000000003,
+    "tabOrder": 8000
   },
   "visual": {
     "visualType": "card",
@@ -26,7 +26,7 @@
                   "Property": "Variacion las ultimas 24h"
                 }
               },
-              "queryRef": "FACT_FUEL_PRICE.variacion las ultimas 24h",
+              "queryRef": "FACT_FUEL_PRICE.Variacion las ultimas 24h",
               "nativeQueryRef": "Variacion las ultimas 24h",
               "format": "#,0.000 \"€\";-#,0.000 \"€\";#,0.000 \"€\""
             }
@@ -53,5 +53,23 @@
       }
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "3071ffb549b87920ce61",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FACT_FUEL_PRICE"
+              }
+            },
+            "Property": "Variacion las ultimas 24h"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

@@ -51,6 +51,44 @@ table FACT_FUEL_PRICE
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	measure 'Variacion relativa las ultimas 24h' = ```
+			
+			    VAR LatestTS = MAX(FACT_FUEL_PRICE[INGESTION_TS])
+			
+			    VAR CurrentAvg =
+			        CALCULATE(AVERAGE(FACT_FUEL_PRICE[PRICE]),
+			            FACT_FUEL_PRICE[INGESTION_TS] = LatestTS)
+			    
+			    VAR PreviousAvg =
+			        CALCULATE(AVERAGE(FACT_FUEL_PRICE[PRICE]),
+			            FACT_FUEL_PRICE[INGESTION_TS] >= LatestTS - 1
+			                && FACT_FUEL_PRICE[INGESTION_TS] < LatestTS)
+			    
+			    RETURN (CurrentAvg - PreviousAvg)/PreviousAvg
+			```
+		lineageTag: 85ef0dbb-66df-4bbc-afbf-6ed64db312dd
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Variacion relativa la ultima semana' = ```
+			
+			    VAR LatestTS = MAX(FACT_FUEL_PRICE[INGESTION_TS])
+			
+			    VAR CurrentAvg =
+			        CALCULATE(AVERAGE(FACT_FUEL_PRICE[PRICE]),
+			            FACT_FUEL_PRICE[INGESTION_TS] = LatestTS)
+			    
+			    VAR PreviousAvg =
+			        CALCULATE(AVERAGE(FACT_FUEL_PRICE[PRICE]),
+			            FACT_FUEL_PRICE[INGESTION_TS] >= LatestTS - 7
+			                && FACT_FUEL_PRICE[INGESTION_TS] < LatestTS)
+			    
+			    RETURN (CurrentAvg - PreviousAvg) / PreviousAvg
+			```
+		lineageTag: 1048c422-75ef-4177-9de9-e1d778a5f8a6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column DATE_ID
 		dataType: dateTime
 		formatString: Long Date

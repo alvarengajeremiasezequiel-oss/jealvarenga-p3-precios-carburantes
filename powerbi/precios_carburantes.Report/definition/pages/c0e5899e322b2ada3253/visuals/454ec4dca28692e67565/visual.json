@@ -4,10 +4,10 @@
   "position": {
     "x": 872,
     "y": 364,
-    "z": 3002,
+    "z": 5000,
     "height": 356,
     "width": 406,
-    "tabOrder": 3002
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "map",
@@ -343,25 +343,6 @@
         },
         "type": "Categorical",
         "howCreated": "User"
-      },
-      {
-        "name": "a8474473821540c7db0c",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "DIM_STATION"
-                  }
-                },
-                "Property": "IDEESS"
-              }
-            },
-            "Function": 2
-          }
-        },
-        "type": "Advanced"
       }
     ],
     "filterSortOrder": "Custom"

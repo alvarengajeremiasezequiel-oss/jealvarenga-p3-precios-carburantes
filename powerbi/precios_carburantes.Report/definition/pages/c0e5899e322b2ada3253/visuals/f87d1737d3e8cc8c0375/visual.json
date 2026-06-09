@@ -4,10 +4,10 @@
   "position": {
     "x": 435.71428571428572,
     "y": 370,
-    "z": 3001,
+    "z": 4000,
     "height": 350,
     "width": 408.57142857142861,
-    "tabOrder": 3001
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "lineChart",
@@ -128,56 +128,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "c3f16d055964c2506e68",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DIM_PRODUCT"
-              }
-            },
-            "Property": "PRODUCT_NAME"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "7bbb8a1e69a952b3ed54",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "FACT_FUEL_PRICE"
-              }
-            },
-            "Property": "INGESTION_TS"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "a100d40075b28c691691",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "FACT_FUEL_PRICE"
-                  }
-                },
-                "Property": "PRICE"
-              }
-            },
-            "Function": 1
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

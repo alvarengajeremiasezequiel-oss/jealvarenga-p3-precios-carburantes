@@ -127,42 +127,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "59288cde9e79ca4002d6",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DIM_PRODUCT"
-              }
-            },
-            "Property": "PRODUCT_NAME"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "39c071c5bb3e0a9d6341",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "FACT_FUEL_PRICE"
-                  }
-                },
-                "Property": "PRICE"
-              }
-            },
-            "Function": 1
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

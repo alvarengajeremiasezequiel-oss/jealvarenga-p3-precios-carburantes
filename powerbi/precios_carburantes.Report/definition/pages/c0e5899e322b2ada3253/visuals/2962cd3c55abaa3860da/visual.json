@@ -183,39 +183,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "9f0a64cf0a99e09ad221",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "FACT_FUEL_PRICE"
-              }
-            },
-            "Property": "INGESTION_TS"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "f33119d2450b65e13580",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "FACT_FUEL_PRICE"
-                  }
-                },
-                "Property": "PRICE"
-              }
-            },
-            "Function": 1
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

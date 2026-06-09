@@ -343,25 +343,6 @@
         },
         "type": "Categorical",
         "howCreated": "User"
-      },
-      {
-        "name": "a3fe608120ee1e750200",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "DIM_STATION"
-                  }
-                },
-                "Property": "IDEESS"
-              }
-            },
-            "Function": 2
-          }
-        },
-        "type": "Advanced"
       }
     ],
     "filterSortOrder": "Custom"

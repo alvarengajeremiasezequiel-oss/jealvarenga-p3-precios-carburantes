@@ -168,6 +168,39 @@
             }
           ]
         }
+      },
+      {
+        "name": "addfc0a224689116dbe1",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FACT_FUEL_PRICE"
+              }
+            },
+            "Property": "INGESTION_TS"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "80d50a78798904093dd7",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "FACT_FUEL_PRICE"
+                  }
+                },
+                "Property": "PRICE"
+              }
+            },
+            "Function": 1
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

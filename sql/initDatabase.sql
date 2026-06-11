@@ -100,16 +100,28 @@ COMMENT = 'Dimensión de fechas';
 ----------------------------------------------------------------------
 -- Task for processing RAW layer and updating SILVER and GOLD layers: 
 ----------------------------------------------------------------------
-CREATE OR REPLACE TASK SILVER.raw_processing_task
+CREATE TASK IF NOT EXISTS SILVER.raw_processing_task
     WAREHOUSE = COMPUTE_WH
 WHEN
     SYSTEM$STREAM_HAS_DATA('RAW.fuel_prices_json_stream')
 AS
 BEGIN
-    -- Collect stream data into a temp table
-    CREATE OR REPLACE TEMP TABLE SILVER._raw_staging AS
-    SELECT ingestion_ts, payload, source_url
-    FROM RAW.fuel_prices_json_stream;
+    -- Recovery path: rebuild from all RAW if SILVER or GOLD fact tables are empty
+    IF ((SELECT COUNT(1) FROM SILVER.fct_price_snapshot) = 0) THEN
+        TRUNCATE TABLE SILVER.fct_price_snapshot;
+        TRUNCATE TABLE GOLD.fact_fuel_price;
+
+        CREATE OR REPLACE TEMP TABLE SILVER._raw_staging AS
+        SELECT ingestion_ts, payload, source_url
+        FROM RAW.fuel_prices_json_stream
+        UNION
+        SELECT ingestion_ts, payload, source_url
+        FROM RAW.fuel_prices_json;
+    ELSE
+        CREATE OR REPLACE TEMP TABLE SILVER._raw_staging AS
+        SELECT ingestion_ts, payload, source_url
+        FROM RAW.fuel_prices_json_stream;
+    END IF;
 
     -- Flatten and unpivot prices into a shared temp table
     CREATE OR REPLACE TEMP TABLE SILVER._raw_prices AS

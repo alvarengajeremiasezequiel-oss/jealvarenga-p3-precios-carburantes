@@ -104,8 +104,15 @@ def exec_sql_file(conn, path: str, db_name: str = None):
 
     cur = conn.cursor()
     try:
-        for stmt in filtered:
+        print(f"  Executing {len(filtered)} SQL statements...")
+        for i, stmt in enumerate(filtered):
+            first_line = stmt.strip().split("\n")[0][:80]
+            print(f"  [{i+1}/{len(filtered)}] {first_line}")
             cur.execute(stmt)
+        # Verify task body was updated
+        rows = cur.execute("SHOW TASKS LIKE 'RAW_PROCESSING_TASK' IN SCHEMA SILVER").fetchall()
+        for row in rows:
+            print(f"  Task columns: name={row[1]} db={row[2]} schema={row[3]} wh={row[6]} schedule={row[7]} state={row[9]}")
     finally:
         cur.close()
 

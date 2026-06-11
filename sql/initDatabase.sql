@@ -84,8 +84,7 @@ CREATE TABLE IF NOT EXISTS GOLD.dim_station (
 COMMENT = 'Dimensión de estaciones de servicio';
 
 CREATE TABLE IF NOT EXISTS GOLD.dim_product (
-    product_name    VARCHAR(50),
-    average_price   NUMBER(12,2)
+    product_name    VARCHAR(50)
 )
 COMMENT = 'Dimensión de productos vendidos';
 
@@ -101,33 +100,16 @@ COMMENT = 'Dimensión de fechas';
 ----------------------------------------------------------------------
 -- Task for processing RAW layer and updating SILVER and GOLD layers: 
 ----------------------------------------------------------------------
-CREATE TASK IF NOT EXISTS SILVER.raw_processing_task
+CREATE OR REPLACE TASK SILVER.raw_processing_task
     WAREHOUSE = COMPUTE_WH
-    SCHEDULE = 'USING CRON 5 */3 * * * UTC'
+WHEN
+    SYSTEM$STREAM_HAS_DATA('RAW.fuel_prices_json_stream')
 AS
 BEGIN
-    -- Skip if nothing to do: SILVER populated and stream empty
-    IF ((SELECT COUNT(1) FROM SILVER.fct_price_snapshot) > 0
-        AND NOT SYSTEM$STREAM_HAS_DATA('RAW.fuel_prices_json_stream')) THEN
-        RETURN;
-    END IF;
-
-    -- Incremental or recovery path
-    IF ((SELECT COUNT(1) FROM SILVER.fct_price_snapshot) = 0) THEN
-        TRUNCATE TABLE SILVER.fct_price_snapshot;
-        TRUNCATE TABLE GOLD.fact_fuel_price;
-
-        CREATE OR REPLACE TEMP TABLE SILVER._raw_staging AS
-        SELECT ingestion_ts, payload, source_url
-        FROM RAW.fuel_prices_json_stream
-        UNION
-        SELECT ingestion_ts, payload, source_url
-        FROM RAW.fuel_prices_json;
-    ELSE
-        CREATE OR REPLACE TEMP TABLE SILVER._raw_staging AS
-        SELECT ingestion_ts, payload, source_url
-        FROM RAW.fuel_prices_json_stream;
-    END IF;
+    -- Collect stream data into a temp table
+    CREATE OR REPLACE TEMP TABLE SILVER._raw_staging AS
+    SELECT ingestion_ts, payload, source_url
+    FROM RAW.fuel_prices_json_stream;
 
     -- Flatten and unpivot prices into a shared temp table
     CREATE OR REPLACE TEMP TABLE SILVER._raw_prices AS
@@ -281,17 +263,6 @@ BEGIN
         VALUES (src.ideess,     src.rotulo,  src.direccion,  src.cp,      src.municipio,
                 src.provincia,  src.idccaa,  src.latitud,    src.longitud);
 
-    -- Update average_price in GOLD.dim_product
-    MERGE INTO GOLD.dim_product AS t
-    USING (
-        SELECT product, ROUND(AVG(price_eur_l), 2) AS average_price
-        FROM SILVER.fct_price_snapshot
-        GROUP BY product
-    ) AS src
-    ON t.product_name = src.product
-    WHEN MATCHED THEN UPDATE SET average_price = src.average_price
-    WHEN NOT MATCHED THEN INSERT (product_name, average_price)
-        VALUES (src.product, src.average_price);
 END;
 
 -- Enable task

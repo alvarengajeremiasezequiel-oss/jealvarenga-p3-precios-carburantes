@@ -56,6 +56,24 @@
             }
           ]
         },
+        "Tooltips": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FACT_FUEL_PRICE"
+                    }
+                  },
+                  "Property": "Precio actual"
+                }
+              },
+              "queryRef": "FACT_FUEL_PRICE.Precio actual",
+              "nativeQueryRef": "Precio actual"
+            }
+          ]
+        },
         "X": {
           "projections": [
             {
@@ -343,6 +361,39 @@
         },
         "type": "Categorical",
         "howCreated": "User"
+      },
+      {
+        "name": "46b44ae485668ebe9e72",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FACT_FUEL_PRICE"
+              }
+            },
+            "Property": "Precio actual"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "fc58b93514c82e077694",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "DIM_STATION"
+                  }
+                },
+                "Property": "IDEESS"
+              }
+            },
+            "Function": 2
+          }
+        },
+        "type": "Advanced"
       }
     ],
     "filterSortOrder": "Custom"

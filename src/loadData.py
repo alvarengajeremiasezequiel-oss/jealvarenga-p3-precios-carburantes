@@ -125,6 +125,7 @@ def insert_raw_json(conn, ingestion_ts: str, payload_json: str, source_url: str)
         )
         return cur.rowcount
 
+
 def main():
 
     json_files = sorted(RAW_DIR.glob("*.json"))

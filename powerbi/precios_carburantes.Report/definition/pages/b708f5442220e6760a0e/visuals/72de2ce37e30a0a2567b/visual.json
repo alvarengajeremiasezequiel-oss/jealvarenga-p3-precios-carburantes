@@ -53,23 +53,5 @@
       }
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "3071ffb549b87920ce61",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "FACT_FUEL_PRICE"
-              }
-            },
-            "Property": "Variacion las ultimas 24h"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

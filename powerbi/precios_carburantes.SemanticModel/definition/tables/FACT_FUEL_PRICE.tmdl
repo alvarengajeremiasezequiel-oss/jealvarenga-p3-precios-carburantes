@@ -89,6 +89,13 @@ table FACT_FUEL_PRICE
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	measure Measure
+		lineageTag: 5306aa36-1cc7-4624-8dc3-b0058b5979ee
+
+		annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":null}
+
+		annotation 277cc1b9-af89-4597-8e15-cacc25c0886b = To use special characters in a measure name, enclose the entire name in brackets ( [] ) and add a ] to any closing brackets in the name.
+
 	column DATE_ID
 		dataType: dateTime
 		formatString: Long Date

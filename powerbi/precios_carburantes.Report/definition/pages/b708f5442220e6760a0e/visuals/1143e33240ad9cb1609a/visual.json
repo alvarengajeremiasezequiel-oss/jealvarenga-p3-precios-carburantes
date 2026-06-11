@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "1143e33240ad9cb1609a",
   "position": {
-    "x": 567.769028871391,
-    "y": 440.1049868766404,
+    "x": 567.14285714285722,
+    "y": 440,
     "z": 6000,
-    "height": 280.52493438320209,
-    "width": 357.79527559055117,
+    "height": 280,
+    "width": 358.57142857142861,
     "tabOrder": 6000
   },
   "visual": {
@@ -250,6 +250,63 @@
             }
           ]
         }
+      },
+      {
+        "name": "3d8a63c5703a549124b0",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "DIM_STATION"
+                  }
+                },
+                "Property": "PROVINCIA"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "0c206ac27e61d334401a",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "DIM_STATION"
+                  }
+                },
+                "Property": "MUNICIPIO"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "63ba6ccd3c885e070c25",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "FACT_FUEL_PRICE"
+                  }
+                },
+                "Property": "PRICE"
+              }
+            },
+            "Function": 1
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

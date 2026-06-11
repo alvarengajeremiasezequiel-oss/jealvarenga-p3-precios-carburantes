@@ -100,7 +100,7 @@ COMMENT = 'Dimensión de fechas';
 ----------------------------------------------------------------------
 -- Task for processing RAW layer and updating SILVER and GOLD layers: 
 ----------------------------------------------------------------------
-CREATE TASK IF NOT EXISTS SILVER.raw_processing_task
+CREATE OR REPLACE TASK SILVER.raw_processing_task
     WAREHOUSE = COMPUTE_WH
 WHEN
     SYSTEM$STREAM_HAS_DATA('RAW.fuel_prices_json_stream')

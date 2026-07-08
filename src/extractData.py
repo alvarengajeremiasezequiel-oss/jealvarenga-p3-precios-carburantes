@@ -51,15 +51,17 @@ def save_raw(data: dict, ingestion_ts: str) -> str:
 
 def main():
     ingestion_ts = time.strftime("%Y-%m-%d %H:%M:%S")
-
     print(f"[{ingestion_ts}] Fetching data from API...")
     data = fetch_data()
 
+    ingestion_ts = time.strftime("%Y-%m-%d %H:%M:%S")
     print(f"[{ingestion_ts}] Saving raw JSON...")
     raw_path = save_raw(data, ingestion_ts)
     stations = data.get("ListaEESSPrecio", [])
     print(f"  Raw data saved to: {raw_path}")
     print(f"  Total stations: {len(stations)}")
+    
+    ingestion_ts = time.strftime("%Y-%m-%d %H:%M:%S")
     print(f"[{ingestion_ts}] Done.")
 
 

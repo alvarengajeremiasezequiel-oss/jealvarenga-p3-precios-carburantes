@@ -147,6 +147,16 @@ BEGIN
     WHERE price_str != '';
 
 
+    -- Merge of products into GOLD.dim_product
+    MERGE INTO GOLD.dim_product AS t
+    USING (
+        SELECT DISTINCT product
+        FROM SILVER._raw_prices
+        GROUP BY product
+    ) AS s
+    ON t.product_name = s.product
+    WHEN NOT MATCHED THEN INSERT (product_name) VALUES (s.product);
+
     -- Merge of new stations into dim_station in SILVER
     MERGE INTO SILVER.dim_station AS t
     USING (
